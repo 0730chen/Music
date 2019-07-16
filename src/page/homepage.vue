@@ -5,15 +5,29 @@
         </div>
         <div>然后有5个按钮</div>
         <middle></middle>
+        <span id="recommended">推荐歌单</span>
+        <div id="more" @click="loadmore">更多</div>
         <div class="songlists">
-            <span class ="songlist" v-for="(songlist,index) in songlists" :key="index">{{songlist.name}}
+            <span class ="songlist" v-for="(songlist,index) in filterAddress" :key="index" >
                 <img :src="songlist.picUrl">
+                {{songlist.name}}
             </span>
+            <!--  -->
         </div>
         <footBar></footBar>
     </div>
 </template>
 <style scoped>
+#more{
+    right: 5%;
+    position:absolute;
+    transform: translateY(10px);
+}
+#recommended{
+    left:5%;
+    position: absolute;
+    transform: translateY(10px)
+}
 .limg{
     width: 80%;
     transform: translateX(12%);
@@ -21,12 +35,21 @@
 }
 .songlists{
     display: flex;
-    flex-direction: column;
-    transform: translateY(1%)
+    flex-direction: row;
+    flex-wrap: wrap;
+    transform: translateY(5%);
+    justify-content: flex-start;
 }
 .songlist{
-    flex:1;
-    padding: 10px;
+    /* display: flex;
+    justify-content: center;
+    flex-wrap: wrap; */
+    font-size: 8px;
+    width: 100px;
+    height: 130px;
+    padding: 8px;
+    flex-shrink: 0;
+    margin-top: 8px;
 }
 img{
     display: block;
@@ -50,6 +73,9 @@ export default {
             mark:0,
             songlists:[],
             imgLists:[],
+            limteAddress:9,
+            arr:[]
+            
         }
     },
     methods: {
@@ -91,6 +117,18 @@ export default {
         },
         play:function(){
             setInterval(this.authplay,1000)
+        },
+        loadmore:function(){
+            console.log('加载更多')
+            console.log(this.limteAddress)
+            let len = this.songlists.length;
+            if(this.limteAddress == len){
+                this.limteAddress = 9
+            } 
+            else 
+            {
+                this.limteAddress = len
+            };
         }
     },
     mounted() {
@@ -100,6 +138,16 @@ export default {
     },
     created() {
         // this.play();
+    },
+    computed: {
+        filterAddress:function(){
+            console.log(this.songlists)
+            return this.songlists.slice(0,this.limteAddress)
+            // for( var i =0 ;i<arr.length;i++){
+            //     console.log(i)
+            //     console.log(arr[i].name)
+            // }
+        }
     },
     
 }

@@ -36,7 +36,7 @@
 <style>
 .middle{
     display: flex;
-    width: 90%;
+    width: 91%;
     /* position: fixed; */
     transform: translateY(80%);
     flex-direction: row;
