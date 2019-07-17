@@ -1,10 +1,14 @@
 <template>
     <div>
+        <div>
+            <input id="select" type="search" placeholder="歌曲">
+            <div id="search"></div>
+        </div>
         <div class="lunbo" v-for="(url,index) in imgLists" :key="index" v-show="index ==mark">
             <img class="limg" :src="url.picUrl" alt="">
         </div>
-        <div>然后有5个按钮</div>
         <middle></middle>
+        <div id="line"></div>
         <span id="recommended">推荐歌单</span>
         <div id="more" @click="loadmore">更多</div>
         <div class="songlists">
@@ -18,18 +22,43 @@
     </div>
 </template>
 <style scoped>
+#line{
+    background-color: rgb(149, 151, 153);
+    height: 1px;
+    transform: translateY(10px)
+}
+#search{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    background: url('../assets/search.jpg') no-repeat right 15px top 5px;
+    background-size: 15%;
+    z-index: 99;
+}
+#select{
+    z-index: 1;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 20px;
+    left: 50%;
+    border-radius: 10px;
+
+}
 #more{
     right: 5%;
     position:absolute;
-    transform: translateY(10px);
+    transform: translateY(15px);
 }
 #recommended{
     left:5%;
     position: absolute;
-    transform: translateY(10px)
+    transform: translateY(15px)
 }
 .limg{
     width: 80%;
+    height: 74%;
     transform: translateX(12%);
 
 }
@@ -37,8 +66,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    transform: translateY(5%);
-    justify-content: flex-start;
+    transform: translateY(30px);
+    justify-content: center;
 }
 .songlist{
     /* display: flex;
@@ -49,12 +78,16 @@
     height: 130px;
     padding: 8px;
     flex-shrink: 0;
-    margin-top: 8px;
+    margin-top: 6px;
 }
 img{
     display: block;
     width: 100px;
     height: 100px;
+    border-radius: 10px;
+}
+.lunbo{
+    height: 200px;
 }
 </style>
 
@@ -74,7 +107,7 @@ export default {
             songlists:[],
             imgLists:[],
             limteAddress:9,
-            arr:[]
+            arr:[],
             
         }
     },

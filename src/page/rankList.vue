@@ -51,8 +51,8 @@ span{
     transform: translateY(-10px)
 }
 .back{
-    top:-31px;
-    left:-7px;
+    top:-31px !important;
+    left:-7px !important;
 }
 
 </style>

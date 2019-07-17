@@ -36,22 +36,15 @@
 <style>
 .middle{
     display: flex;
-    width: 91%;
+    width: 365px;
     /* position: fixed; */
-    transform: translateY(80%);
     flex-direction: row;
-    transform: translateX(8%)
+    transform: translateY(-15px)
     
 }
 div{
     flex: 1;
 }
-    
-       
-
-
-    
-    
 </style>
 <script>
 export default {

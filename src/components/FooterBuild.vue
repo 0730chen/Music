@@ -41,6 +41,8 @@
     left: 0;
     bottom: 0;
     flex-direction: row;
+    background-color: rgb(247, 249, 252);
+    z-index: 99;
     
 }
 div{
