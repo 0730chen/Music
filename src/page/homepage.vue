@@ -1,5 +1,6 @@
 <template>
     <div>
+        <span id="micphone"></span>
         <div>
             <input id="select" type="search" placeholder="歌曲">
             <div id="search"></div>
@@ -22,6 +23,16 @@
     </div>
 </template>
 <style scoped>
+#micphone{
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    background: url('../assets/micphone.jpg') no-repeat left;
+    background-size: 40%;
+    top:2px;
+    z-index: 99;
+    left: 50px;
+}
 #line{
     background-color: rgb(149, 151, 153);
     height: 1px;
@@ -38,6 +49,7 @@
     z-index: 99;
 }
 #select{
+    width: 60%;
     z-index: 1;
     position: absolute;
     transform: translateX(-50%);
@@ -57,9 +69,9 @@
     transform: translateY(15px)
 }
 .limg{
-    width: 80%;
+    width: 90%;
     height: 74%;
-    transform: translateX(12%);
+    transform: translateX(5%);
 
 }
 .songlists{

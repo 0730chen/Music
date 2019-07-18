@@ -14,6 +14,7 @@ import songlist from '../page/songList.vue'
 import ranklist from '../page/rankList.vue'
 import radio from '../page/radio.vue'
 import zhibo from '../page/zhibo.vue'
+import near from '../page/nearPage.vue'
 
 Vue.use(Router)
 
@@ -58,5 +59,9 @@ export default new Router({
         path: '/zhibo',
         name: 'zhibo',
         component: zhibo
+    }, {
+        path: '/near',
+        name: 'near',
+        component: near
     }]
 })
