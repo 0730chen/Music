@@ -43,6 +43,7 @@
     flex-direction: row;
     background-color: rgb(247, 249, 252);
     z-index: 99;
+    font-size: 0.14rem;
     
 }
 div{

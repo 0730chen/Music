@@ -52,10 +52,11 @@ console.log(NavBar)
 </script>
 
 <style>
-body html{
+html{
   padding: 0;
   width: 100%;
-  height: 100%
+  height: 100%;
+  font-size: 26.67vw;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div>这是关于账号信息的页面</div>
         <div>分为了5部分</div>
         <div>第一部分是登陆的个人信息：头像：账号信息</div>
@@ -10,6 +10,12 @@
     <footBar></footBar>
     </div>
 </template>
+<style scoped>
+.container{
+    font-size: 0.16rem
+}
+</style>
+
 <script>
 import footBar from '../components/FooterBuild'
 export default {

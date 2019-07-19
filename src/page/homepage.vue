@@ -62,11 +62,13 @@
     right: 5%;
     position:absolute;
     transform: translateY(15px);
+    font-size:0.16rem;
 }
 #recommended{
     left:5%;
     position: absolute;
-    transform: translateY(15px)
+    transform: translateY(15px);
+    font-size: 0.16rem;
 }
 .limg{
     width: 90%;

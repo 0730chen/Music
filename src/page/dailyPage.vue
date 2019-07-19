@@ -15,6 +15,9 @@
     </div>
 </template>
 <style scoped>
+.songList{
+    font-size: 0.16rem;
+}
 .List{
     display: flex;
     flex-direction: row-reverse;
@@ -26,6 +29,7 @@ img{
     height: 50%;
     width: 50%;
     margin: 0;
+    border-radius: 0.1rem;
 }
 </style>
 

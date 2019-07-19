@@ -36,10 +36,11 @@
 <style>
 .middle{
     display: flex;
-    width: 365px;
+    width: 3.65rem;
     /* position: fixed; */
     flex-direction: row;
-    transform: translateY(-15px)
+    transform: translateY(-15px);
+    font-size: 0.16rem
     
 }
 div{

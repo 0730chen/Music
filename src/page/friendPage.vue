@@ -15,7 +15,8 @@
         <div class="allDate">
         <div v-for="(mov,index) in event" :key="index" class="all">
             <div v-if="mov.pics.length > 3">
-            {{mov.user.nickname}}
+            <img class="icon" :src="mov.user.backgroundUrl">
+            <span class="nickname">{{mov.user.nickname}}</span>
             <div class="persons">
             <div v-for="(srcs,index) in mov.pics" :key="index">
                 <div v-if="mov.pics.length > 3">
@@ -31,17 +32,27 @@
     </div>
 </template>
 <style scoped>
+.nickname{
+    position: relative;
+    top: -0.1rem;
+    font-size: 0.16rem
+}
+.icon{
+    width: 0.35rem;
+    height: 0.35rem;
+}
 .all{
     text-align: left;
-    padding: 10px;
+    padding: 0.1rem;
 }
 img{
-    width: 100px;
-    height: 100px;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.1rem;
 }
 .imgs{
-    height: 100px;
-    width: 100px;
+    height: 1rem;
+    width: 1rem;
 }
 .allDate{
     display: flex;
@@ -52,39 +63,41 @@ img{
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 300px;
+    height: 3rem;
     flex-wrap: wrap;
 }
 #line{
-    height: 1px;
+    height: 0.01px;
     background-color: black;
-    margin: 20px;
+    margin: 0.2px;
 }
 .button{
-    width: 100px;
+    width: 1rem;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 0.1;
+    font-size: 0.16rem;
 }
 #spans{
     display: flex;
     flex-direction: row;
+    font-size: 0.16rem
 }
 span{
     flex:1;
 }
 #buttons{
-    width: 100px;
-    top: 20px;
+    width: 1rem;
+    top: 0.2rem;
     position: absolute;
     display: flex;
     left: 50%;
     transform: translateX(-50%);
     flex-direction: row;
     border: 1px solid peachpuff;
-    border-radius: 10px;
+    border-radius: 0.1rem;
 }
 button{
-    border-radius: 10px;
+    border-radius: 0.1rem;
 
 }
 .active{

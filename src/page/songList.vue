@@ -20,17 +20,18 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    font-size: 0.16rem;
 }
 .songList{
   flex-grow: 1;
 
 }
 .imgList{
-    padding: 20px;
+    padding: 0.2rem;
 }
 .imgs{
     width: 80%;
-    height: 200px;
+    height: 2rem;
 }
 .imgurls{
     display: flex;

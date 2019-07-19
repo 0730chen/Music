@@ -1,11 +1,10 @@
 <template>
     <div>
-        <backTab></backTab> 
-        <div>这是视频页面</div>
-        <div>有可以滑动的选项框</div>
+        <div class="title">这是视频页面</div>
+        <div class="title">有可以滑动的选项框</div>
 
         <div class="videos" v-for="(video,index) in allList" :key="index">
-            <div>{{video.title}}
+            <div class="title">{{video.title}}
             </div>
             <img :src="video.coverUrl" alt="123">
             <iframe :src="video.url" frameborder="0"></iframe>
@@ -19,16 +18,20 @@
     </div>
 </template>
 <style scoped>
+.title{
+    font-size: 0.16rem;
+
+}
 .videos{
-    padding: 10px;
+    padding: 0.1rem;
 }
 img{
-    width: 250px;
-    height: 150px;
+    width: 2.5rem;
+    height: 1.5rem;
 }
 video{
-    width: 200px;
-    height: 100px
+    width: 2rem;
+    height: 1rem;
 }
 </style>
 
