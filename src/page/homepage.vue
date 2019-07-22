@@ -56,6 +56,7 @@
     top: 20px;
     left: 50%;
     border-radius: 10px;
+    font-size: 0.16rem;
 
 }
 #more{
@@ -128,7 +129,7 @@ export default {
     methods: {
         login:function(){
             axios.get('http://127.0.0.1:3000/login/cellphone?phone=17691103482&password=970214').then(function(res){
-                // console.log(res)
+                console.log(res.data)
             }).catch(function(err){
                 console.log(err)
             })

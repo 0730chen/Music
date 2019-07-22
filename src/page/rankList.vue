@@ -15,35 +15,36 @@
 <style scoped>
 .updata{
     position: absolute;
-    width: 100px;
-    height: 50px;
+    width: 1rem;
+    height: 0.5rem;
     z-index: 10;
     left: 0;
     color:aliceblue;
     text-align: center;
-    transform: translateY(80px)
+    transform: translateY(0.8rem)
 }
 .songList{
-    height: 100px;
-    width: 345px;
+    height: 1rem;
+    width: 3.45rem;
     display: flex;
 }
 .rankImg {
-    height: 100px;
-    width: 100px;
+    height: 1rem;
+    width: 1rem;
 }
 span{
     position: absolute;
-    width:170px;
-    height: 50px;
+    widows: 1.7rem;
+    height: 0.5rem;
     text-align: center;
     left: 30%;
-    transform: translateY(50px)
+    transform: translateY(0.5rem);
+    font-size: 0.16rem
 }
 .block{
     display: block;
     width: 100%;
-    height: 20px;
+    height: 0.2rem;
     color: aliceblue;
 }
 .rankList{
@@ -51,8 +52,8 @@ span{
     transform: translateY(-10px)
 }
 .back{
-    top:-31px !important;
-    left:-7px !important;
+    top:-0.31rem !important;
+    left:-0.07rem !important;
 }
 
 </style>
