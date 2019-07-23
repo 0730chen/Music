@@ -1,7 +1,11 @@
 <template>
     <div class="container">
         <div class="users">
-            <div>签到</div>
+            <div id="headers">
+            </div>
+            <div id="points">
+                <van-icon name="points"></van-icon>
+            </div>
         </div>
         <div class="msg">
         <div class="accountMsg" v-for="(msg ,index) in persons" :key='index'>
@@ -36,6 +40,28 @@
     </div>
 </template>
 <style scoped>
+.van-icon-points{
+    width: 0.3rem;
+    height: 0.3rem;
+    font-size: 200%
+}
+#headers{
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 1px solid black;
+    border-radius: 50%;
+    position: absolute;
+    left: 0.2rem;
+    top: -0.2rem;
+    text-align: center;
+}
+#points{
+    width: 0.5rem;
+    height: 0.5rem;
+    position: absolute;
+    right: 0.4rem;
+    top: 0;
+}
 .accountMsg{
     height: 0.3rem;
     border-right: 1px solid salmon;
@@ -45,7 +71,7 @@
 }
 
 .users{
-    position: absolute;
+    position: relative;
     top: 0;
     width: 100%;
     height: 1rem;
@@ -73,6 +99,8 @@
 }
 .container{
     font-size: 0.16rem;
+    width: 100%;
+    height: 100%;
 }
 .line{
     width: 90%;

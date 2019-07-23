@@ -9,6 +9,10 @@
                 <div>{{index}}&nbsp;{{list.name}}</div><div :data-id="list.id" @click=" clickDate($event)">播放</div>
 
             </div>
+            <div class="play">
+                <img src="" alt="">
+                <audio :src="songUrl"></audio>
+            </div>
             <footBar></footBar>
         </div>
 
@@ -72,6 +76,13 @@ export default {
                 console.log(res.data.data[0].url)
                 
                 self.songUrl = res.data.data[0]['url']
+                self.$router.push({
+                    path: '/playSong',
+                    query:{
+                        url: self.songUrl
+                    }
+                })
+                // window.location.href = '/playSong'
                 // this.$router.push({path:res.data.data[0].url})
             }).catch(function(err){
                 console.log(err)

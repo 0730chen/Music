@@ -39,7 +39,7 @@
     width: 3.65rem;
     /* position: fixed; */
     flex-direction: row;
-    transform: translateY(-15px);
+    transform: translate(0.1rem,-0.15rem);
     font-size: 0.16rem
     
 }

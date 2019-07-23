@@ -2,22 +2,127 @@
     <div>
         <backTab></backTab>
         <div class="radio">
-            电台页面
+            <div class="picList" v-for="(pic,index) in Pics" :key="index" v-show="mark == index">
+                <img :src="pic.picUrl" alt="">
+                <div>{{pic.name}}</div>
+            </div>
         </div>
+        <div class="Tabs">
+        <div class="radioTab" v-for="(tab,index) in radios" :key="index">
+            {{tab.name}}
+        </div>
+        </div>
+        <div class="line"></div>
+        <div class="djRaidos">
+            <div class="djs" v-for="(dj,index) in djRadios" :key="index">
+                <img  class="djImg" :src='dj.picUrl' alt="">
+                <div>{{dj.name}}</div>
+            </div>
+            </div> 
         <footBar></footBar>
     </div>
 </template>
+<style scoped>
+.djs{
+    font-size: 0.16rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.djRaidos{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.1rem;
+}
+.djImg{
+    width: 1rem;
+    height: 1rem;
+}
+.line{
+    width: 90%;
+    height: 1px;
+    background: cornflowerblue;
+    margin: 0 auto;
+   
+}
+.radio{
+    font-size: 0.16rem;
+    display: flex;
+}
+img{
+    width: 80%;
+    height: 1.6rem;
+    border-radius: 5%
+}
+.Tabs{
+    display: flex;
+    margin: 0.1rem;
+}
+.radioTab{
+    font-size: 0.16rem;
+    flex:1;
+}
+</style>
+
 <script>
 import footBar from '../components/FooterBuild'
 import backTab from '../components/backPage'
+import axios from 'axios'
 export default {
     data(){
         return{
-            name:"radio"
+            name:"radio",
+            Pics:[],//页面轮播图数据
+            mark :0,
+            djRadios:[],//推荐单台数据
+            radios:[
+                {
+                    name:'电台分类',
+                },
+                {
+                    name:'电台排行',
+                },
+                {
+                    name:'付费精品',
+                },
+                {
+                    name:'音乐课堂',
+                }
+            ]
         }
     },
     components:{
         footBar,backTab
-    }
+    },
+    methods: {
+        getDate:function(){
+            axios.get('http://127.0.0.1:3000/personalized/djprogram',{withCredentials:true}).then(res => {
+                // console.log(res.data.result)
+                this.Pics = res.data.result
+                console.log(this.Pics)
+            })
+        },
+        djs:function(){
+            axios.get('http://127.0.0.1:3000/dj/recommend',{withCredentials:true}).then(res => {
+                console.log(res.data)
+                this.djRadios = res.data.djRadios
+            })
+        },
+        authplay(mark){
+            this.mark++;
+            if(this.mark == 5){
+                this.mark =0
+            }
+        },
+        play:function(){
+            // setTimeout(this.authplay,1000)
+            setInterval(this.authplay,1000)
+        }
+    },
+    mounted() {
+        this.getDate() //轮播图数据
+        this.djs()   //推荐电台数据
+        // this.play()
+    },
+
 }
 </script>

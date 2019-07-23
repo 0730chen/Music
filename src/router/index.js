@@ -15,10 +15,12 @@ import ranklist from '../page/rankList.vue'
 import radio from '../page/radio.vue'
 import zhibo from '../page/zhibo.vue'
 import near from '../page/nearPage.vue'
+import playSong from '../page/playSong.vue'
 
 Vue.use(Router)
 
 export default new Router({
+    mode: 'history',
     routes: [{
         path: '/',
         name: 'HelloWorld',
@@ -63,5 +65,9 @@ export default new Router({
         path: '/near',
         name: 'near',
         component: near
+    }, {
+        path: '/playSong',
+        name: 'play',
+        component: playSong
     }]
 })

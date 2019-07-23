@@ -12,6 +12,9 @@
             <img :src ="songs.coverImgUrl">
         </div>
         </div>
+        <div class="play">
+            <img src="" alt="">
+        </div>
         <footBar></footBar>
     </div>
 </template>
@@ -30,7 +33,7 @@
     padding: 0.2rem;
 }
 .imgs{
-    width: 80%;
+    width: 90%;
     height: 2rem;
 }
 .imgurls{
