@@ -37,6 +37,7 @@
 .footer{
     display: flex;
     width: 100%;
+    height: 0.25rem;
     position: fixed;
     left: 0;
     bottom: 0;

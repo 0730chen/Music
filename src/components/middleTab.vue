@@ -73,7 +73,7 @@ export default {
                       cls:"radio"
 
                   },{
-                      name:"直播",
+                      name:"评论",
                       path:"/zhibo",
                       cls:"zhibo",
 

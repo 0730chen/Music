@@ -6,13 +6,15 @@
             <div class="List" v-for="(list,index) in songlist " :key="index">
                 <img :src="list.album['picUrl']">
                 <!-- <div>播放</div> -->
-                <div>{{index}}&nbsp;{{list.name}}</div><div :data-id="list.id" @click=" clickDate($event)">播放</div>
+                <div>{{index}}&nbsp;{{list.name}}</div>
+                    <div :data-id="list.id" :data-src="list.album['picUrl']" @click=" clickDate($event)">播放</div>
+                
 
             </div>
-            <div class="play">
+            <!-- <div class="play">
                 <img src="" alt="">
                 <audio :src="songUrl"></audio>
-            </div>
+            </div> -->
             <footBar></footBar>
         </div>
 
@@ -68,20 +70,30 @@ export default {
         },
         clickDate(e){
             // console.log(e.target.getAttribute('data-id'))
+
+            this.listSrc = e.target.getAttribute('data-src')
             this.listId = e.target.getAttribute('data-id')
             console.log(this.listId)
+            console.log(this.listSrc)
             let self = this
             
             axios.get('http://127.0.0.1:3000/song/url?id='+this.listId).then(function(res){
-                console.log(res.data.data[0].url)
+                console.log(res.data.data[0])
                 
                 self.songUrl = res.data.data[0]['url']
+                sessionStorage.setItem('url',self.songUrl)
+                sessionStorage.setItem('src',self.listSrc)
                 self.$router.push({
-                    path: '/playSong',
-                    query:{
-                        url: self.songUrl
-                    }
+                    name:'play'
                 })
+                // 页面跳转并播放
+                // self.$router.push({
+                //     name: 'play',
+                //     params:{
+                //         url: self.songUrl,
+                //         src: self.listSrc,
+                //     }
+                // })
                 // window.location.href = '/playSong'
                 // this.$router.push({path:res.data.data[0].url})
             }).catch(function(err){

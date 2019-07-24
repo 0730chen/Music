@@ -6,6 +6,7 @@
             <div class="fbox">
             <div class="buttons" v-for="(bts,index) in buttons" :key="index">
                 {{bts.name}}
+                <img :src = "bts.src">
             </div>
             </div>
         </div>
@@ -28,6 +29,10 @@
     </div>
 </template>
  <style scoped>
+ img{
+     width: 0.2rem;
+     height: 0.2rem;
+ }
  .arrows{
      position: absolute;
      left: 0.2rem;
@@ -66,21 +71,21 @@
      transform: translateY(-0.7rem)
  }
  .fbox{
-     width: 4rem;
+     width:200%;
      height: 0.5rem;
      
  }
 .buttons{
-    border: 1px solid chocolate;
     float: left;
     height: 0.5rem;
-    width: 0.32rem;
+    width: 0.5rem;
     font-size: 0.1rem;
+    padding: 0.1rem;
 }
 .buttonList{
     height: 0.5rem;
     width: 100%;
-    color: aqua;
+    color:black;
     overflow-x: scroll;
     overflow-y: hidden;
     
@@ -112,8 +117,19 @@
 
 <script>
 import footBar from '../components/FooterBuild'
+import radio from '../assets/radio.png'
 import Icon from 'vant/lib/icon'
 import 'vant/lib/icon/style'
+import car from '../assets/car.png'
+import mic from '../assets/mic.png'
+import sati from '../assets/sati.png'
+import header1 from '../assets/hear-1.png'
+import header2 from '../assets/heart-2.png'
+import child from '../assets/child.png'
+import piano from '../assets/piano.png'
+import run from '../assets/run.png'
+import bing from '../assets/bing.png'
+import jazz from '../assets/jazz.png'
 console.log(Icon)
 export default {
     components:{
@@ -141,37 +157,48 @@ export default {
             ],
             buttons:[
                 {
-                    name:'私人FM'
+                    name:'私人FM',
+                    src:radio
                 },
                 {
-                    name:'驾驶模式'
+                    name:'驾驶模式',
+                    src:car
                 },
                 {
                     name:'最新电音',
+                    src:mic
                 },
                 {
-                    name:'Sati空间'
+                    name:'Sati空间',
+                    src:sati
                 },
                 {
                     name:'私藏推荐',
+                    src:header1
                 },
                 {
-                    name:'因乐交友'
+                    name:'因乐交友',
+                    src:header2
                 },
                 {
                     name:'亲子频道',
+                    src:child
                 },
                 {
                     name:'古典专区',
+                    src:piano
                 },
                 {
                     name:'跑步FM',
+                    src:run
                 },
                 {
                     name:'小冰电台',
+                    src:bing
                 },
                 {
-                    name:'爵士电台'
+                    name:'爵士电台',
+                    src:jazz
                 }
 
             ],
