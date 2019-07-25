@@ -1,10 +1,10 @@
 <template>
     <div>
         <backTab></backTab>
-        <div class="container">
+        <div class="containe">
         <div class="comments" v-for="(comment,index) in commentsList" :key="index">
             <img :src="comment.sharePicUrl">
-            {{comment.title}}
+            <div class="title">{{comment.title}}</div>
         </div>
         </div>
     
@@ -12,13 +12,28 @@
     </div>
 </template>
 <style scoped>
-img{
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
+.title{
+    position: absolute;
+    left: 0.5rem;
+    font-size: 0.1rem;
 }
-    .container{
+img{
+    position: absolute;
+    left: 0.13rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    
+    
+}
+.comments{
+    width: 100%;
+    height: 2rem;
+}
+.containe{
+        
         font-size: 0.16rem;
+        justify-content: start;
     }
 </style>
 
