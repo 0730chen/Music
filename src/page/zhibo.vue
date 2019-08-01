@@ -3,11 +3,10 @@
         <backTab></backTab>
         <div class="containe">
         <div class="comments" v-for="(comment,index) in commentsList" :key="index">
-            <img :src="comment.sharePicUrl">
-            <div class="title">{{comment.title}}</div>
-            <div class="context" v-for="(context,index) in comment.text" :key="index" v-if ="comment.text !=[]">
-                {{context}}
-        </div>
+            <img :src="comment.user.avatarUrl" alt="">
+            <!-- <img :src="comment.sharePicUrl"> -->
+            <div class="title">{{comment.user.nickname}}</div>
+            <div class="context">{{comment.content}}</div>
         </div>
     
     <footBar></footBar>
@@ -18,10 +17,13 @@
 .context{
     position:absolute;
     width:100%;
-    height:0.3rem;
-    font-size:0.16rem;
-    transform:translateY(0.5rem)
-}
+    height:1rem;
+    font-size:0.12rem;
+    left:-0.05rem ;
+    bottom: 0.05rem;
+    text-align: center;
+    }
+
 .title{
     position: absolute;
     left: 0.5rem;
@@ -37,11 +39,12 @@ img{
     
 }
 .comments{
+    position: relative;
     width: 100%;
     height: 2rem;
 }
 .containe{
-        position:relative;
+
         font-size: 0.16rem;
         justify-content: start;
     }
@@ -54,7 +57,8 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            commentsList:[]
+            commentsList:[],
+            commtext:[],
         }
     },
     components:{
@@ -62,17 +66,20 @@ export default {
     },
     methods: {
         getDate:function(){
-            axios.get('http://127.0.0.1:3000/hot/topic?limit=30&offset=30',{withCredentials:true}).then(res => {
-                console.log(res.data.hot)
-                let list = res.data.hot
+            axios.get('http://127.0.0.1:3000/comment/hot?id=186016&type=0',{withCredentials:true}).then(res => {
+                console.log(res.data.hotComments)
+                let list = res.data.hotComments
+                this.commentsList = res.data.hotComments
                 // this.commentsList = res.data.hot
                 for(const iter of list){
-                    if(iter.text.length != 0){
-                        this.commentsList.push(iter)
-                        console.log(iter.text)
-                    }else{
-                        console.log('没有留言')
-                    }
+                    console.log(iter)
+                    // if(iter.text.length != 0){
+                    //     // this.commentsList.push(iter)
+                        
+                    //     console.log(iter.text[0])
+                    // }else{
+                    //     console.log('没有留言')
+                    // }
                     // console.log(typeof(iter.text))
                 }
             })
