@@ -16,11 +16,11 @@
 <style scoped>
 .context{
     position:absolute;
-    width:100%;
+    width:74%;
     height:1rem;
     font-size:0.12rem;
-    left:-0.05rem ;
-    bottom: 0.05rem;
+    left:0.5rem ;
+    bottom: 0.1rem;
     text-align: center;
     }
 
@@ -67,12 +67,12 @@ export default {
     methods: {
         getDate:function(){
             axios.get('http://127.0.0.1:3000/comment/hot?id=186016&type=0',{withCredentials:true}).then(res => {
-                console.log(res.data.hotComments)
+                // console.log(res.data.hotComments)
                 let list = res.data.hotComments
                 this.commentsList = res.data.hotComments
                 // this.commentsList = res.data.hot
                 for(const iter of list){
-                    console.log(iter)
+                    // console.log(iter)
                     // if(iter.text.length != 0){
                     //     // this.commentsList.push(iter)
                         

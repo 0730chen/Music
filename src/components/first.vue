@@ -14,7 +14,7 @@
 </template>
 <script>
 import hello from "./HelloWorld.vue";
-console.log(hello)
+// console.log(hello)
 export default {
     data(){
     return {

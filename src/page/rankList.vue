@@ -77,7 +77,7 @@ export default {
             let self = this
             axios.get('http://127.0.0.1:3000/toplist').then(function(res){
                 
-                console.log(res.data)
+                // console.log(res.data)
                 self.rankList = res.data['list']
                 // self.rankList = res.data.playlist['tracks']
                 // console.log(rankList)

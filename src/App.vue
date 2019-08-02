@@ -31,7 +31,7 @@ import first from './components/first.vue'
 import cpt from './components/cpt.vue'
 import NavBar from './components/FooterBuild.vue'
 import hello from './components/HelloWorld.vue'
-console.log(NavBar)
+// console.log(NavBar)
 // export default {
 //   name: 'App',
 //   msg2:'hello',

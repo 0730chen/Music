@@ -142,7 +142,7 @@ import middle from '../components/middleTab'
 import axios from 'axios'
 import Icon from 'vant/lib/icon'
 import 'vant/lib/icon/style'
-console.log(middle)
+// (middle)console.log
 export default {
     components:{
         footBar,
@@ -162,29 +162,30 @@ export default {
     methods: {
         login:function(){
             axios.get('http://127.0.0.1:3000/login/cellphone?phone=17691103482&password=970214').then(function(res){
-                console.log(res.data)
+                // console.log(res.data)
             }).catch(function(err){
                 console.log(err)
             })
         },
         songlist:function(){
             let self = this
-            console.log(this)
+            // console.log(this)
             axios.get('http://127.0.0.1:3000/personalized').then(function(res){
                 // console.log(this)
                 // console.log(self)
                 // console.log(res.data)
                 self.songlists = res.data['result']
-                console.log(self.songlists)
+                // console.log(self.songlists)
             }).catch(function(err){
                 console.log(err)
             })
         },
         imglists:function(){
-            axios.get('http://127.0.0.1:3000/personalized/privatecontent').then(res =>{console.log(this)
+            axios.get('http://127.0.0.1:3000/personalized/privatecontent').then(res =>{
+                // console.log(this)
             // console.log(res.data)
             this.imgLists = res.data['result']
-            console.log(this.imgLists)
+            // console.log(this.imgLists)
             }).catch(function(err){
                 console.log(err)
             })
@@ -200,8 +201,8 @@ export default {
             setInterval(this.authplay,1000)
         },
         loadmore:function(){
-            console.log('加载更多')
-            console.log(this.limteAddress)
+            // console.log('加载更多')
+            // console.log(this.limteAddress)
             let len = this.songlists.length;
             if(this.limteAddress == len){
                 this.limteAddress = 9
@@ -222,7 +223,7 @@ export default {
     },
     computed: {
         filterAddress:function(){
-            console.log(this.songlists)
+            // console.log(this.songlists)
             //返回需要显示的数组数据给页面中
             return this.songlists.slice(0,this.limteAddress)
             // for( var i =0 ;i<arr.length;i++){

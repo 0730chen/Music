@@ -98,12 +98,12 @@ export default {
             axios.get('http://127.0.0.1:3000/personalized/djprogram',{withCredentials:true}).then(res => {
                 // console.log(res.data.result)
                 this.Pics = res.data.result
-                console.log(this.Pics)
+                // console.log(this.Pics)
             })
         },
         djs:function(){
             axios.get('http://127.0.0.1:3000/dj/recommend',{withCredentials:true}).then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 this.djRadios = res.data.djRadios
             })
         },

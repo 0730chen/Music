@@ -65,7 +65,7 @@ export default {
         imgList:function(){
             let self = this
             axios.get('http://127.0.0.1:3000/top/playlist',{withCredentials: true}).then(function(res){
-                console.log(res.data['playlists'])
+                // console.log(res.data['playlists'])
                 self.songlist = res.data['playlists']
             }).catch(function(err){
                 console.log(err)
@@ -74,9 +74,9 @@ export default {
         lunboimgurl:function(){
             let self = this
             axios.get('http://127.0.0.1:3000/top/playlist/highquality?before=1503639064232&limit=5').then(function(res){
-                console.log(res.data)
+                // console.log(res.data)
                 self.imgurls = res.data['playlists']
-                console.log(self.imgurls)
+                // console.log(self.imgurls)
             }).catch(function(err){
                 console.log(err)
             })

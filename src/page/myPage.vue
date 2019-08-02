@@ -130,7 +130,7 @@ import piano from '../assets/piano.png'
 import run from '../assets/run.png'
 import bing from '../assets/bing.png'
 import jazz from '../assets/jazz.png'
-console.log(Icon)
+// console.log(Icon)
 export default {
     components:{
         footBar,
@@ -206,9 +206,9 @@ export default {
     },
     methods: {
         chage:function(){
-            console.log(this.show)
+            // console.log(this.show)
             this.show = !this.show
-            console.log(this.show)
+            // console.log(this.show)
             // console.log(e.target.getAttribute('class'))
             
 

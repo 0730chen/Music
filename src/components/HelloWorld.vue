@@ -17,7 +17,7 @@
 <script>
 import $ from 'jquery'
 $(function(){
-  console.log('引用jquery')
+  // console.log('引用jquery')
 })
 export default {
   name: 'HelloWorld',

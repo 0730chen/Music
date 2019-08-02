@@ -58,21 +58,21 @@ export default {
                 res => {
                     // console.log(res.data.datas)
                  this.videos = res.data.datas
-                 console.log(this.Lists)
+                //  console.log(this.Lists)
                  for(let i =0;i<this.videos.length; i++){
                      console.log(i)
                     //  console.log(this.videos[i].data.vid)
                      
                      axios.get('http://127.0.0.1:3000/video/url?id='+this.videos[i].data.vid).then( res =>{
                          
-                         console.log(res.data['urls'][0].url)
+                        //  console.log(res.data['urls'][0].url)
                         //  that.urls = res.data['urls'][0].url
                     //    that.urls = {'urls':res.data['urls'][0].url}
                         that.videos[i].data.url = res.data['urls'][0].url
-                        console.log(that.videos[i].data)
+                        // console.log(that.videos[i].data)
 
                         that.allList.push(that.videos[i].data)
-                        console.log(that.allList)
+                        // console.log(that.allList)
                         // that.Lists = that.videos[i].data
                         // console.log(that.Lists)
                     //    console.log(that.Lists)
@@ -87,7 +87,7 @@ export default {
                          console.log(err)
                      })
                  }
-                 console.log(this.Lists)
+                //  console.log(this.Lists)
 
                 //  for(let i = 0; i<this.videos.length; i++){
                 //      console.log(videos[i])

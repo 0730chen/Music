@@ -67,9 +67,9 @@ img{
     flex-wrap: wrap;
 }
 #line{
-    height: 0.01px;
+    height: 0.01rem;
     background-color: black;
-    margin: 0.2px;
+    margin: 0.2rem;
 }
 .button{
     width: 1rem;
@@ -133,15 +133,15 @@ export default {
      getDate:function(){
          axios.get('http://127.0.0.1:3000/event?pagesize=30',{withCredentials: true}).then(res => {
              this.event = res.data.event
-             console.log(this.event)
+            //  console.log(this.event)
              //不需要这些操作
              for(const iterator of res.data.event){
                 //  console.log(res.data.event)
                  console.log(iterator.pics.length)
                  if( iterator.pics.length > 3) {
-                     console.log(iterator)
+                    //  console.log(iterator)
                      this.imgs.push([...iterator.pics]);
-                     console.log(this.imgs)
+                    //  console.log(this.imgs)
                  }
              }
              })

@@ -63,7 +63,7 @@ export default {
             let self = this
             axios.get('http://127.0.0.1:3000/recommend/songs',{withCredentials: true}).then(function(res){
                 self.songlist = res.data['recommend']
-                console.log(self.songlist)
+                // console.log(self.songlist)
             }).catch(function(err){
                 console.log(err)
             })
@@ -73,12 +73,12 @@ export default {
 
             this.listSrc = e.target.getAttribute('data-src')
             this.listId = e.target.getAttribute('data-id')
-            console.log(this.listId)
-            console.log(this.listSrc)
+            // (this.listId)console.log
+            // console.log(this.listSrc)
             let self = this
             
             axios.get('http://127.0.0.1:3000/song/url?id='+this.listId).then(function(res){
-                console.log(res.data.data[0])
+                // console.log(res.data.data[0])
                 
                 self.songUrl = res.data.data[0]['url']
                 sessionStorage.setItem('url',self.songUrl)
