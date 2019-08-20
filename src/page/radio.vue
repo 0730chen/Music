@@ -95,14 +95,14 @@ export default {
     },
     methods: {
         getDate:function(){
-            axios.get('http://127.0.0.1:3000/personalized/djprogram',{withCredentials:true}).then(res => {
+            axios.get('api/personalized/djprogram',{withCredentials:true}).then(res => {
                 // console.log(res.data.result)
                 this.Pics = res.data.result
                 // console.log(this.Pics)
             })
         },
         djs:function(){
-            axios.get('http://127.0.0.1:3000/dj/recommend',{withCredentials:true}).then(res => {
+            axios.get('api/dj/recommend',{withCredentials:true}).then(res => {
                 // console.log(res.data)
                 this.djRadios = res.data.djRadios
             })

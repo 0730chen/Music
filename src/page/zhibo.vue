@@ -66,7 +66,7 @@ export default {
     },
     methods: {
         getDate:function(){
-            axios.get('http://127.0.0.1:3000/comment/hot?id=186016&type=0',{withCredentials:true}).then(res => {
+            axios.get('api/comment/hot?id=186016&type=0',{withCredentials:true}).then(res => {
                 // console.log(res.data.hotComments)
                 let list = res.data.hotComments
                 this.commentsList = res.data.hotComments

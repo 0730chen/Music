@@ -4,7 +4,7 @@
             <backTab></backTab>
             <div v-for="(song,index) in rankList" :key="index">
                 <div class="songList">
-                    <img class="rankImg" v-bind:src="song.coverImgUrl" alt="排行"><span class="updata">{{song.updateFrequency}}</span><span>{{song.name}}</span>
+                    <img class="rankImg" v-bind:src="song.coverImgUrl" alt="排行"><span class="updata">{{song.updateFrequency}}</span><span :data-id = "song.id" @click="onchange">{{song.name}}</span>
                 </div>
                 <div class="block"></div>
             </div>
@@ -75,7 +75,7 @@ export default {
     methods: {
         getData(){
             let self = this
-            axios.get('http://127.0.0.1:3000/toplist').then(function(res){
+            axios.get('api/toplist').then(function(res){
                 
                 // console.log(res.data)
                 self.rankList = res.data['list']
@@ -88,6 +88,12 @@ export default {
             }).catch(function(error){
                 console.log(error)
             })
+        },
+        onchange(e){
+            // console.log(e.target.dataset.id)
+            let id = e.target.getAttribute('data-id')
+            console.log(id)
+            // axios.get('http://127.0.0.1:3000/toplist')
         }
     },
     created() {

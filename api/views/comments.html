@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="back" type="button" value="返回首页">
+    <h1>这是一个留言板</h1>
+
+    <ul>
+        <li>1</li>
+        <hr>
+        <li>1</li>
+        <hr>
+        <li>1</li>
+        <hr>
+        <li>1</li>
+        <hr>
+        <li>1</li>
+        <hr>
+        <li>1</li>
+        <hr>
+        <li>1</li>
+        <hr>
+        <li>1</li>
+        <hr>
+
+    </ul>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#back').click(function() {
+                console.log('调回去')
+                window.location.href = window.origin + '/page'
+            })
+            // $.ajax({
+            //     method: 'get',
+            //     url: '/comments',
+            //     success: function(response) {
+            //         console.log(response)
+            //     }
+            // })
+    })
+</script>
+
+</html>

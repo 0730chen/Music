@@ -131,7 +131,7 @@ export default {
  },
  methods: {
      getDate:function(){
-         axios.get('http://127.0.0.1:3000/event?pagesize=30',{withCredentials: true}).then(res => {
+         axios.get('api/event?pagesize=30',{withCredentials: true}).then(res => {
              this.event = res.data.event
             //  console.log(this.event)
              //不需要这些操作

@@ -2,7 +2,7 @@
     <div>
         <div class="songList">
             <backTab></backTab>
-            <span>每日推荐的歌曲列表</span>
+            
             <div class="List" v-for="(list,index) in songlist " :key="index">
                 <img :src="list.album['picUrl']">
                 <!-- <div>播放</div> -->
@@ -23,6 +23,7 @@
 <style scoped>
 .songList{
     font-size: 0.16rem;
+    z-index: 99;
 }
 .List{
     display: flex;
@@ -61,7 +62,7 @@ export default {
         
         getSong(){
             let self = this
-            axios.get('http://127.0.0.1:3000/recommend/songs',{withCredentials: true}).then(function(res){
+            axios.get('api/recommend/songs',{withCredentials: true}).then(function(res){
                 self.songlist = res.data['recommend']
                 // console.log(self.songlist)
             }).catch(function(err){
@@ -77,7 +78,7 @@ export default {
             // console.log(this.listSrc)
             let self = this
             
-            axios.get('http://127.0.0.1:3000/song/url?id='+this.listId).then(function(res){
+            axios.get('api/song/url?id='+this.listId).then(function(res){
                 // console.log(res.data.data[0])
                 
                 self.songUrl = res.data.data[0]['url']

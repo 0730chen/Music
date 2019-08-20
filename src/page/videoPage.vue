@@ -54,7 +54,7 @@ export default {
     methods: {
         videoLists:function(){
             var that = this
-            axios.get('http://127.0.0.1:3000/video/group?id=4101',{withCredentials: true}).then(
+            axios.get('api/video/group?id=4101',{withCredentials: true}).then(
                 res => {
                     // console.log(res.data.datas)
                  this.videos = res.data.datas
@@ -63,7 +63,7 @@ export default {
                      console.log(i)
                     //  console.log(this.videos[i].data.vid)
                      
-                     axios.get('http://127.0.0.1:3000/video/url?id='+this.videos[i].data.vid).then( res =>{
+                     axios.get('api/video/url?id='+this.videos[i].data.vid).then( res =>{
                          
                         //  console.log(res.data['urls'][0].url)
                         //  that.urls = res.data['urls'][0].url

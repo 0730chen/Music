@@ -161,7 +161,7 @@ export default {
     },
     methods: {
         login:function(){
-            axios.get('http://127.0.0.1:3000/login/cellphone?phone=17691103482&password=970214').then(function(res){
+            axios.get('api/login/cellphone?phone=17691103482&password=970214').then(function(res){
                 // console.log(res.data)
             }).catch(function(err){
                 console.log(err)
@@ -170,7 +170,7 @@ export default {
         songlist:function(){
             let self = this
             // console.log(this)
-            axios.get('http://127.0.0.1:3000/personalized').then(function(res){
+            axios.get('api/personalized').then(function(res){
                 // console.log(this)
                 // console.log(self)
                 // console.log(res.data)
@@ -181,7 +181,7 @@ export default {
             })
         },
         imglists:function(){
-            axios.get('http://127.0.0.1:3000/personalized/privatecontent').then(res =>{
+            axios.get('api/personalized/privatecontent').then(res =>{
                 // console.log(this)
             // console.log(res.data)
             this.imgLists = res.data['result']
@@ -203,7 +203,7 @@ export default {
         loadmore:function(){
             // console.log('加载更多')
             // console.log(this.limteAddress)
-            let len = this.songlists.length;
+            let len = this.songlists.length;//实际数组的长度
             if(this.limteAddress == len){
                 this.limteAddress = 9
             } 

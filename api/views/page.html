@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>页面</title>
+</head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        overflow-y: auto;
+    }
+    
+    .pagination {
+        position: relative;
+        top: 50%;
+        left: 31%;
+        transform: translateY(520px)
+    }
+    
+    hr {
+        width: 100%;
+        position: relative;
+        transform: translateX(-30px);
+        border: 1px solid #989292;
+    }
+    
+    #navHr {
+        width: 100%;
+        left: 8%;
+        position: relative;
+        border: 1px solid #989292;
+    }
+    
+    #content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        bottom: -97px;
+    }
+    
+    #message {
+        height: 20%;
+        width: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -143px;
+        margin-top: 138px;
+        /* border: 1px solid black; */
+    }
+    
+    #discuss {
+        position: absolute;
+        bottom: -2px;
+        background-color: #e48282;
+        left: 188px;
+    }
+    
+    textarea {
+        width: 171px;
+        height: 141px;
+    }
+    
+    #Context {
+        position: relative;
+        width: 100%;
+        height: 131px;
+        border: 1px solid black
+    }
+    
+    .Plid {
+        font-size: 30px;
+        background-color: brown;
+    }
+</style>
+
+<body id="body1">
+
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <ul class="nav nav-pills">
+                    <li class="active" id="page-home"><a href="/page/header">首页</a></li>
+                    <li class='content' id="page-context"><a href="/page/learn">学习</a></li>
+                    <li class='interest' id="page-int"><a href="/page/interst">感兴趣的事</a></li>
+                    <li class=" daily" id="page-day"><a href="/page/all">留言</a></li>
+                    <li class=" daily" id="page-loginOut"><a href="/page/daily">退出
+                    </a></li>
+
+
+                </ul>
+                <hr id="navHr">
+            </div>
+        </div>
+        <div id="content" class="row-fluid">
+            <div class=" col-md-3">
+                <p>1.学习Vue</p>
+                <hr>
+            </div>
+            <div class=" col-md-9">
+                <p>2.学习Node</p>
+                <hr>
+            </div>
+            <div class=" col-md-9">
+                <p>3.学习Python</p>
+                <hr>
+            </div>
+            <div class=" col-md-9">
+                <p>4.学习网站开发</p>
+                <hr>
+            </div>
+            <div class=" col-md-9">
+                <p>5.学习数据结构</p>
+                <hr>
+            </div>
+            <div class=" col-md-9">
+                <p>6.学习路由</p>
+                <hr>
+            </div>
+        </div>
+        <ul class="pagination">
+            <li><a href="#">&laquo;</a></li>
+            <li>
+                <a href="#">1</a>
+            </li>
+            <li><a href="#2">2</a></li>
+            <li><a href="#3">3</a></li>
+            <li><a href="#4">4</a></li>
+            <li><a href="#5">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+        <div id="message">
+            <textarea rows="10" cols="30" id="discussAuto">
+                        
+                </textarea>
+            <input class="btn btn-default" type="submit" value="发表评论" id="discuss">
+
+        </div>
+    </div>
+    <ul id="ulPl">
+
+    </ul>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+</script>
+<script>
+    $(document).ready(function() {
+        window.onhashchange = function(e) {
+            console.log('old', e.oldURL)
+            console.log('new', e.newURL)
+            console.log('hash改变了')
+        }
+        $('.nav-pills').on('click', 'li', function(event) {
+            // console.log(this)
+            // console.log(event)
+            $(this).toggleClass('active').siblings().removeClass('active')
+        })
+        $('#discuss').click(function() {
+            // console.log($('#discussAuto').val())
+            var context = $("#discussAuto").val()
+            $.ajax({
+                method: 'POST',
+                url: '/comments',
+                data: {
+                    text: context
+                },
+                dataType: 'json',
+                success: function(response) {
+                    console.log('成功了')
+                    console.log(response)
+                    console.log(response['Data'])
+                    window.location.href = response.url
+                        // var msg = response['Data']['text']
+                        // $('.container').css('display', 'none')
+                        // $('#ulPl').css('display', 'black')
+                        // $('body').append(`<li class="Plid">${msg}</li><hr>`)
+
+                },
+                error: function(response) {
+                    console.log('err')
+                }
+            })
+
+            // setTimeout(function() {
+            //     window.location.href = 'comments'
+            // }, 1000)
+        })
+
+    })
+
+    // function Router() {
+    //     this.routes = {}
+    //     this.curUrl = ''
+    //     this.route = function(path, callback) {
+    //         this.routes[path] = callback || function() {}
+    //         console.log('routes[path]' + this.routes[path])
+    //     }
+    //     this.refresh = function() {
+    //         this.curUrl = location.hash.slice(1) || '/'
+    //         this.routes[this.curUrl]
+    //         console.log('location.hash' + location.hash)
+    //         console.log('curUrl' + this.curUrl)
+    //         console.log('this.routes[this.curUrl]' + this.routes[this.curUrl])
+    //     }
+    //     this.init = function() {
+    //         window.addEventListener('load', this.refresh.bind(this), false)
+    //         window.addEventListener('hashchange', this.refresh.bind(this), false)
+    //     }
+
+    // }
+    // var R = new Router();
+    // R.init();
+    // var res = document.getElementById('body1')
+    // R.route('/header', function() {
+    //     res.innerHTML = '我的页面'
+    // })
+</script>
+
+</html>
