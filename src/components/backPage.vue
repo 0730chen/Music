@@ -5,7 +5,7 @@
 </template>
 <style scoped>
 .back{
-    position: absolute;
+    position: fixed;
     top:18px;
     left: 18px;
     border:10px solid transparent;

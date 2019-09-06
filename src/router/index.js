@@ -2,9 +2,7 @@
 /* eslint-disable eol-last */
 import Vue from 'vue'
 import Router from 'vue-router'
-
-// import footBar from '../components/FooterBuild.vue'
-import homePage from '../page/homepage.vue'
+// import homePage from '../page/homepage.vue'
 import videoPage from '../page/videoPage.vue'
 import myPage from '../page/myPage.vue'
 import friendPage from '../page/friendPage.vue'
@@ -17,6 +15,10 @@ import zhibo from '../page/zhibo.vue'
 import near from '../page/nearPage.vue'
 import playSong from '../page/playSong.vue'
 
+// import footBar from '../components/FooterBuild.vue'
+const homepage = () =>
+    import('../page/homepage.vue')
+
 Vue.use(Router)
 
 export default new Router({
@@ -24,7 +26,7 @@ export default new Router({
     routes: [{
         path: '/',
         name: 'HelloWorld',
-        component: homePage
+        component: homepage
     }, {
         path: '/video',
         name: 'video',

@@ -13,21 +13,35 @@
         <div class="lunbo" v-for="(url,index) in imgLists" :key="index" v-show="index ==mark">
             <img class="limg" :src="url.picUrl" alt="">
         </div>
+        <transition name="fade">
         <middle></middle>
+        </transition>
         <div id="line"></div>
         <span id="recommended">推荐歌单</span>
         <div id="more" @click="loadmore">更多</div>
         <div class="songlists">
             <span class ="songlist" v-for="(songlist,index) in filterAddress" :key="index" >
-                <img :src="songlist.picUrl">
+                <img v-lazy="songlist.picUrl">
                 {{songlist.name}}
             </span>
-            <!--  -->
         </div>
         <footBar></footBar>
     </div>
 </template>
 <style scoped>
+.fade-enter-active{
+    transition: all 0.5s ease;
+}
+.fade-leave-active{
+    transition: all 0.5s ease;
+}
+.fade-enter{
+     transform: translateX(1rem);
+    opacity: 0;
+}
+.fade-leave-to{
+     transform: translateX(4rem);
+}
 .chart{
     width: 0.5rem;
     height: 0.5rem;
@@ -169,7 +183,7 @@ export default {
         },
         songlist:function(){
             let self = this
-            // console.log(this)
+            // console.log(this)    axios.get('api/personalized')
             axios.get('api/personalized').then(function(res){
                 // console.log(this)
                 // console.log(self)
@@ -225,6 +239,7 @@ export default {
         filterAddress:function(){
             // console.log(this.songlists)
             //返回需要显示的数组数据给页面中
+            // console.log(this.songlists)
             return this.songlists.slice(0,this.limteAddress)
             // for( var i =0 ;i<arr.length;i++){
             //     console.log(i)
@@ -232,6 +247,11 @@ export default {
             // }
         }
     },
-    
+    watch: {
+        '$route'(to,from){
+            console.log(to)
+            console.log(from)
+        }
+    },
 }
 </script>

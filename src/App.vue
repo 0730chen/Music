@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="container">
-    <router-view></router-view>
+    <transition :name="fade">
+    
+    <router-view></router-view></transition>
     </div>
     <!-- <img src="./assets/bg.jpg"> -->
     <!-- <first></first> -->
@@ -46,12 +48,91 @@ import hello from './components/HelloWorld.vue'
    NavBar,
    
   },
+  data(){
+    return {
+      fade:'fade-right'
+    }
+  },
+  watch: {
+    '$route'(to,from){
+      //判断
+      this.fade = 'fade-right'
+      if(to.path =='/'){
+        console.log('回到首页')
+        this.fade = 'fade-left'
+      }
+      // console.log(to)
+      // console.log(from)
+     
+    }
+  },
   
 
 }
 </script>
 
 <style>
+.fade-left-enter-active{
+  animation-name:fade-left-in;
+  animation-duration: .3s
+}
+.fade-left-leave-active{
+  animation-name:fade-left-out;
+  animation-duration: .3s
+}
+@keyframes fade-left-in{
+  0%{
+    -webkit-transform: translate3d(100%,0,0);
+    transform: translate3d(100%,0,0)
+  }
+  100%{
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0)
+  }
+}
+@keyframes fade-left-out{
+  0%{
+    -webkit-transform: translate3d(0,0,0);
+    transform:translate3d(0,0,0)
+  }
+  100%{
+    -webkit-transform: translate3d(-100%,0,0);
+    transform:translate3d(-100%,0,0)
+  }
+}
+.fade-right-enter-active{
+  animation-name:fade-right-in;
+  animation-duration: .3s;
+}
+.fade-right-leave-active{
+  animation-name: fade-right-out;
+  animation-duration: .3s
+}
+@keyframes fade-right-in{
+  0%{
+    width: 100%;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0)
+  }
+  100%{
+    width:100%;
+    -webkit-transform: translate3d(-100%,0,0);
+    transform: translate3d(-100%,0,0)
+  }
+
+}
+@keyframes fade-right-out{
+  0%{
+    width:100%;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0)
+  }
+  100%{
+    width: 100%;
+    -webkit-transform: translate3d(100%,0,0);
+    transform:translate3d(100%,0,0)
+  }
+}
 html{
   padding: 0;
   width: 100%;
