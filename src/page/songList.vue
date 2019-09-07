@@ -24,18 +24,17 @@
 </template>
 <style scoped>
 .lunbo-enter-active{
-    transform: translate(90%);
+    transform: translateX(90%);
     /* transform: translateY(-2rem); */
     transition: all 3s ease;
 }
 .lunbo-leave-active{
-    transform: translateX(90%);
+    transform: translateX(-90%);
     transition: all .3s ease;
 }
 .lunbo-enter{
-
     /* opacity: 0; */
-    transform: translate3d(0,0,0)
+    transform: translate(1rem)
     /* transform: translate(90%,2rem) */
 }
 
@@ -57,7 +56,7 @@
     padding: 0.2rem;
 }
 .imgs{
-    width: 90%;
+    width: 3rem;
     height: 2rem;
 }
 .imgurls{
