@@ -1,13 +1,17 @@
 <template>
-    <div>
+    <div class="songPage">
         <backTab></backTab>
         <div class="imgList">
-            <div class="imgurls" v-for="(img,index) in imgurls" :key="index">
-                <img class="imgs" :src="img" v-show="index==mark">
+            
+            <div class="imgurls" v-for="(img,index) in fitterArray()" :key="index">
+                <transition name="lunbo">
+                <img class="imgs" v-lazy="img.coverImgUrl" v-if="index==mark" :key="index">
+                </transition>
             </div>
         </div>
+        
         <div class="container">
-        <div class="songList" v-for="(songs,index) in songlist" :key="index">
+        <div class="songList" v-for="(songs,index) in fitterArray2()" :key="index">
             {{songs.name}}
             <img v-lazy="songs.coverImgUrl">
         </div>
@@ -19,11 +23,31 @@
     </div>
 </template>
 <style scoped>
+.lunbo-enter-active{
+    transform: translate(90%);
+    /* transform: translateY(-2rem); */
+    transition: all 3s ease;
+}
+.lunbo-leave-active{
+    transform: translateX(90%);
+    transition: all .3s ease;
+}
+.lunbo-enter{
+
+    /* opacity: 0; */
+    transform: translate3d(0,0,0)
+    /* transform: translate(90%,2rem) */
+}
+
+.songPage{
+    font-size: 0.16rem;
+}
 .container{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     font-size: 0.16rem;
+    transform: translateY(2rem)
 }
 .songList{
   flex-grow: 1;
@@ -37,8 +61,9 @@
     height: 2rem;
 }
 .imgurls{
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 2rem;
 }
 img{
     display: block;
@@ -62,6 +87,13 @@ export default {
         }
     },
     methods: {
+        fitterArray:function(){
+            // console.log(this.songlist.slice(0,4))
+            return this.songlist.slice(0,4)
+        },
+        fitterArray2:function(){
+            return this.songlist.slice(4,this.songlist.length)
+        },
         imgList:function(){
             let self = this
             axios.get('api/top/playlist',{withCredentials: true}).then(function(res){
@@ -127,7 +159,7 @@ export default {
  
         },
         play:function(){
-            setInterval(this.authplay,1000)
+            setInterval(this.authplay,5000)
         }
     },
     components:{
