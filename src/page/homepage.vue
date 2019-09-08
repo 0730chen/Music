@@ -10,12 +10,14 @@
                 <van-icon class="chart" name ="bar-chart-o"></van-icon>
             </div>
         </div>
-        <div class="lunbo" v-for="(url,index) in imgLists" :key="index" v-show="index ==mark">
-            <img class="limg" :src="url.picUrl" alt="">
+        <div class="slide">
+        <div class="lunbo" v-for="(url,index) in imgLists" :key="index">
+            <transition name="Slideshow">
+            <img class="limg" :src="url.picUrl" alt="" v-show="index ==mark">
+            </transition>
         </div>
-        <transition name="fade">
+        </div>
         <middle></middle>
-        </transition>
         <div id="line"></div>
         <span id="recommended">推荐歌单</span>
         <div id="more" @click="loadmore">更多</div>
@@ -29,18 +31,15 @@
     </div>
 </template>
 <style scoped>
-.fade-enter-active{
-    transition: all 0.5s ease;
+.Slideshow-enter-active{
+    transition: all 3s ease;
 }
-.fade-leave-active{
-    transition: all 0.5s ease;
+.Slideshow-leave-active{
+    transition: all 3s ease;
 }
-.fade-enter{
-     transform: translateX(1rem);
+.Slideshow-enter,.Slideshow-leave-to{
+    /* transform: translateX(1rem); */
     opacity: 0;
-}
-.fade-leave-to{
-     transform: translateX(4rem);
 }
 .chart{
     width: 0.5rem;
@@ -106,7 +105,7 @@ i{
 #more{
     right: 5%;
     position:absolute;
-    transform: translateY(15px);
+    transform: translateY(0.15rem);
     font-size:0.16rem;
 }
 #recommended{
@@ -125,7 +124,7 @@ i{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    transform: translateY(30px);
+    transform: translateY(0.25rem);
     justify-content: center;
 }
 .songlist{
@@ -146,7 +145,15 @@ img{
     border-radius: 10px;
 }
 .lunbo{
-    height: 200px;
+    position: absolute;
+    
+    float: left;
+    height: 2rem;
+    /* transform: translateY(0.2rem) */
+}
+.slide{
+    position: relative;
+    height: 2rem;
 }
 </style>
 
@@ -212,7 +219,7 @@ export default {
             // console.log(this.mark)
         },
         play:function(){
-            setInterval(this.authplay,1000)
+            setInterval(this.authplay,5000)
         },
         loadmore:function(){
             // console.log('加载更多')
@@ -233,7 +240,7 @@ export default {
         this.imglists()
     },
     created() {
-        // this.play();
+        this.play();
     },
     computed: {
         filterAddress:function(){

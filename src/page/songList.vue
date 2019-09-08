@@ -1,5 +1,5 @@
 <template>
-    <div class="songPage">
+    <div>
         <backTab></backTab>
         <div class="imgList">
             
@@ -24,25 +24,32 @@
 </template>
 <style scoped>
 .lunbo-enter-active{
-    transform: translateX(90%);
+    
     /* transform: translateY(-2rem); */
     transition: all 3s ease;
 }
 .lunbo-leave-active{
-    transform: translateX(-90%);
-    transition: all .3s ease;
+    
+    transition: all 3s ease;
 }
-.lunbo-enter{
+.lunbo-enter, .lunbo-leave-to{
     /* opacity: 0; */
-    transform: translate(1rem)
+    /* transform: translateX(2rem); */
+    opacity: 0;
     /* transform: translate(90%,2rem) */
 }
 
-.songPage{
+/* .songPage{
+    position: absolute;
     font-size: 0.16rem;
-}
+    width: 100%;
+    height: 100%;
+   
+} */
 .container{
     display: flex;
+    width: 90%;
+    height: 100%;
     flex-direction: column;
     flex-wrap: wrap;
     font-size: 0.16rem;
@@ -53,21 +60,30 @@
 
 }
 .imgList{
-    padding: 0.2rem;
+    position: absolute;
+    width: 80%;
+    height: 2rem;
+    left: 0.25rem;
+    padding: 0rem;
 }
 .imgs{
+    position: absolute;
     width: 3rem;
     height: 2rem;
+    border-radius: 10%
 }
 .imgurls{
     position: absolute;
-    width: 100%;
+    width: 80%;
     height: 2rem;
+    border-radius: 10%;
+    float: left;
 }
 img{
     display: block;
     position: relative;
     width: 30%;
+    
 
 }
 </style>
