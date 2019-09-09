@@ -163,6 +163,8 @@ import middle from '../components/middleTab'
 import axios from 'axios'
 import Icon from 'vant/lib/icon'
 import 'vant/lib/icon/style'
+import car from '../vuex/index'
+console.log(car)
 // (middle)console.log
 export default {
     components:{
@@ -232,6 +234,9 @@ export default {
             {
                 this.limteAddress = len
             };
+        },
+        con(){
+            console.log(this.$store.state.count)
         }
     },
     mounted() {
@@ -240,7 +245,11 @@ export default {
         this.imglists()
     },
     created() {
+        this.$store.dispatch('incrementAsync').then(res=>{console.log(res)})
+        // 
+        console.log(this.$store.car)
         this.play();
+        this.con()
     },
     computed: {
         filterAddress:function(){
