@@ -6,7 +6,7 @@ const state = {
     }
     //计算属性
 const getters = {
-        print(state) {
+        printcar(state) {
             console.log(state.count)
         }
     }
@@ -31,3 +31,4 @@ export default {
     getters,
     mutations,
     actions
+}

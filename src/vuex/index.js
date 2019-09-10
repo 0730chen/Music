@@ -1,14 +1,12 @@
-// const vue = require('vue')
-// const vuex = require('vuex')
-// const car = require('../vuex/car')
-// const cat = require('../vuex/cat')
-//     // import car from '../vuex/car'
-//     // import cat from '../vuex/cat'
-// console.log(vue)
+import Vue from 'vue'
+import Vuex from 'Vuex'
+import cat from './cat'
+import car from './car'
+Vue.use(Vuex)
 
-// // export default new Vuex.Store({
-// //     modules: {
-// //         a: car,
-// //         b: cat
-// //     }
-// // })
+export default new Vuex.Store({
+    modules: {
+        car,
+        cat
+    }
+})

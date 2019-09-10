@@ -1,9 +1,6 @@
 <template>
     <div>
         <div id="header">
-        <!-- <span id="micphone">
-            <van-icon name="audio"></van-icon>
-        </span> -->
         <van-icon name="audio"></van-icon>
             <input id="select" type="search" placeholder="歌曲">
             <div id="search">
@@ -38,7 +35,6 @@
     transition: all 3s ease;
 }
 .Slideshow-enter,.Slideshow-leave-to{
-    /* transform: translateX(1rem); */
     opacity: 0;
 }
 .chart{
@@ -70,7 +66,6 @@ i{
     position:absolute;
     width: 50px;
     height: 50px;
-    /* background: url('../assets/micphone.jpg') no-repeat left; */
     background-size: 40%;
     top:0.05rem;
     z-index: 99;
@@ -128,9 +123,6 @@ i{
     justify-content: center;
 }
 .songlist{
-    /* display: flex;
-    justify-content: center;
-    flex-wrap: wrap; */
     font-size: 8px;
     width: 100px;
     height: 130px;
@@ -149,7 +141,6 @@ img{
     
     float: left;
     height: 2rem;
-    /* transform: translateY(0.2rem) */
 }
 .slide{
     position: relative;
@@ -164,8 +155,7 @@ import axios from 'axios'
 import Icon from 'vant/lib/icon'
 import 'vant/lib/icon/style'
 import car from '../vuex/index'
-console.log(car)
-// (middle)console.log
+import {mapState,mapMutations,mapGetters,mapActions} from 'Vuex'
 export default {
     components:{
         footBar,
@@ -192,23 +182,16 @@ export default {
         },
         songlist:function(){
             let self = this
-            // console.log(this)    axios.get('api/personalized')
+            
             axios.get('api/personalized').then(function(res){
-                // console.log(this)
-                // console.log(self)
-                // console.log(res.data)
                 self.songlists = res.data['result']
-                // console.log(self.songlists)
             }).catch(function(err){
                 console.log(err)
             })
         },
         imglists:function(){
             axios.get('api/personalized/privatecontent').then(res =>{
-                // console.log(this)
-            // console.log(res.data)
             this.imgLists = res.data['result']
-            // console.log(this.imgLists)
             }).catch(function(err){
                 console.log(err)
             })
@@ -218,15 +201,12 @@ export default {
             if(this.mark >=3){
                 this.mark = 0
             }
-            // console.log(this.mark)
         },
         play:function(){
             setInterval(this.authplay,5000)
         },
         loadmore:function(){
-            // console.log('加载更多')
-            // console.log(this.limteAddress)
-            let len = this.songlists.length;//实际数组的长度
+            let len = this.songlists.length;
             if(this.limteAddress == len){
                 this.limteAddress = 9
             } 
@@ -236,7 +216,9 @@ export default {
             };
         },
         con(){
-            console.log(this.$store.state.count)
+           
+            // console.log(this.$store.state.count)
+            console.log(this.count)
         }
     },
     mounted() {
@@ -245,29 +227,19 @@ export default {
         this.imglists()
     },
     created() {
+        
         this.$store.dispatch('incrementAsync').then(res=>{console.log(res)})
-        // 
-        console.log(this.$store.car)
         this.play();
         this.con()
+        this.count
     },
     computed: {
         filterAddress:function(){
-            // console.log(this.songlists)
-            //返回需要显示的数组数据给页面中
-            // console.log(this.songlists)
             return this.songlists.slice(0,this.limteAddress)
-            // for( var i =0 ;i<arr.length;i++){
-            //     console.log(i)
-            //     console.log(arr[i].name)
-            // }
-        }
-    },
-    watch: {
-        '$route'(to,from){
-            console.log(to)
-            console.log(from)
-        }
+        },
+        ...mapState([
+            'count'
+        ])
     },
 }
 </script>

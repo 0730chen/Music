@@ -16,16 +16,13 @@
             <img v-lazy="songs.coverImgUrl">
         </div>
         </div>
-        <!-- <div class="play">
-            <img src="" alt="">
-        </div> -->
         <footBar></footBar>
     </div>
 </template>
 <style scoped>
 .lunbo-enter-active{
     
-    /* transform: translateY(-2rem); */
+   
     transition: all 3s ease;
 }
 .lunbo-leave-active{
@@ -33,19 +30,11 @@
     transition: all 3s ease;
 }
 .lunbo-enter, .lunbo-leave-to{
-    /* opacity: 0; */
-    /* transform: translateX(2rem); */
+   
     opacity: 0;
-    /* transform: translate(90%,2rem) */
+    
 }
 
-/* .songPage{
-    position: absolute;
-    font-size: 0.16rem;
-    width: 100%;
-    height: 100%;
-   
-} */
 .container{
     display: flex;
     width: 90%;
@@ -103,7 +92,6 @@ export default {
     },
     methods: {
         fitterArray:function(){
-            // console.log(this.songlist.slice(0,4))
             return this.songlist.slice(0,4)
         },
         fitterArray2:function(){
@@ -112,54 +100,16 @@ export default {
         imgList:function(){
             let self = this
             axios.get('api/top/playlist',{withCredentials: true}).then(function(res){
-                // console.log(res.data['playlists'])
                 self.songlist = res.data['playlists']
-                console.log(Date.now())
-                console.log('我是then')
-                
-                
-                // for(let i= 0; i<5; i++){
-                //     // console.log(self.songlist[i]['coverImgUrl'])
-                //     self.imgurls.push(self.songlist[i]['coverImgUrl'])
-                // }
                 self.imgurls.push(res.data['playlists'].slice(0,6))
             })
         },
         lunboimgurl:async function(){
             console.log(typeof(this.imgList()))
-            // let a = await axios.get('api/top/playlist',{withCredentials: true})
+           
             let a = await this.imgList()
             console.log(a)
-            // console.log(a)
             
-
-
-            // console.log(a)
-            // const a = await this.imgList()
-            // // console.log('获取到A')
-            // console.log(Date.now())
-            // console.log('我是轮播图')
-            // console.log(a)
-            // console.log(this)
-            // console.log(this.songlist)
-            // console.log(a)
-            // console.log(this.imgurls)
-            // let imgurlS = JSON.parse(JSON.stringify(this.imgurls))
-            // console.log(imgurlS)
-            // for(let i = 0; i<4;i++){
-            //     console.log(this.imgurls[i])
-            // }
-            // console.log(this.imgurls)
-            // let self = this
-            // console.log(self.songlist)
-            // return songlist.slice(0,6)
-            // axios.get('api/top/playlist/highquality?before=1503639064232&limit=5').then(function(res){
-            //     console.log(res.data)
-            //     self.imgurls = res.data['playlists']
-            //     // console.log(self.imgurls)
-            // }).catch(function(err){
-            //     console.log(err)
-            // })
         },
 
         authplay:function(mark){
@@ -167,10 +117,6 @@ export default {
             if(this.mark ==4){
                 this.mark =0;
             }
-            // if(this.mark >=5){
-            //     this.mark = 0;
-            // }
-            // console.log(this.mark)
  
         },
         play:function(){
@@ -182,7 +128,6 @@ export default {
     },
     mounted() {
          
-        // this.lunboimgurl()
     },
     created() {
         this.imgList()

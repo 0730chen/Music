@@ -5,24 +5,6 @@
     
     <router-view></router-view></transition>
     </div>
-    <!-- <img src="./assets/bg.jpg"> -->
-    <!-- <first></first> -->
-    <!-- <NavBar></NavBar> -->
-    <!-- <div id="app-in"> -->
-      
-      <!-- <first></first> -->
-    <!-- </div> -->
-    <!-- <v-navbar></v-navbar>
-    <router-link to="cpt">跳转到蔡</router-link> -->
-    <!-- <router-view></router-view> -->
-    
-    
-    <!-- <div class="box">
-     <NavBar></NavBar>
-      <router-view>
-      <v-navbar :items="items" :showIconOrSrc="showIconOrSrc"></v-navbar></router-view> -->
-    <!-- </div> -->
-    
   </div>
   
 </template>
@@ -33,14 +15,6 @@ import first from './components/first.vue'
 import cpt from './components/cpt.vue'
 import NavBar from './components/FooterBuild.vue'
 import hello from './components/HelloWorld.vue'
-// console.log(NavBar)
-// export default {
-//   name: 'App',
-//   msg2:'hello',
-//   components:{
-//     first,cpt,FooterPubli
-//   }
-// }
  export default{
   name:"app",
   msg2:'hello',
@@ -58,12 +32,8 @@ import hello from './components/HelloWorld.vue'
       //判断
       this.fade = 'fade-right'
       if(to.path =='/'){
-        console.log('回到首页')
         this.fade = 'fade-left'
       }
-      // console.log(to)
-      // console.log(from)
-     
     }
   },
   
