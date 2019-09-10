@@ -20,19 +20,15 @@ const store = new Vuex.Store({
         count: 3,
         list: [{ 'link': '1234' }, { 'ssss': 'zzz' }]
     },
-<<<<<<< HEAD
     
     mutations: {
         increment(state) {
             state.count++
-              
-=======
-    mutations: {
+        },
         increment(state) {
             state.count++
->>>>>>> c8442b5f94f8e193d7c9612563805f1e995725e3
         },
-        printinit(state, name) {
+        printinit(state, name){
             state.count = 10
                 // console.log(state.car.count)
 
@@ -47,18 +43,13 @@ const store = new Vuex.Store({
             store.commit('fitter', a.data.result)
             return a
         }
-<<<<<<< HEAD
         
     }
 })
 store.commit('print', 'jack')
 console.log(store.state.count)
     
-=======
-    }
-})
 store.commit('printinit', 'jack')
->>>>>>> c8442b5f94f8e193d7c9612563805f1e995725e3
 new Vue({
     el: '#app',
     router,
