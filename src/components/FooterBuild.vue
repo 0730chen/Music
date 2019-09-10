@@ -1,33 +1,7 @@
 <template>
-    <!--<div class="Footer">
-         <div id="find">
-             <span>发现</span>
-             </div>
-         <div id="video">
-             <span>视频</span>
-             </div>
-         <div id="mys">
-             <span>我的
-             </span>
-             </div>
-         <div id="friend">
-             <span>朋友
-             </span>
-             </div>
-         <div id="account">
-             <span>账号
-             </span>
-             </div>
-        
-    </div>-->
     <div class="footer">
-        
        <div v-for="(item,index) of items" :key="index">
-        <!-- <span @click="clickBar">{{item.name}}</span> -->
-        <!-- 可以使用对象里面的参数去跳转页面 -->
         <router-link :to="{path:item.path}" >{{item.name}}</router-link>
-        
-        
         </div>
 
     </div>
@@ -50,12 +24,6 @@
 div{
     flex: 1;
 }
-    
-       
-
-
-    
-    
 </style>
 <script>
 export default {
@@ -92,39 +60,8 @@ export default {
         }
     },
     props:{
-        // items:{
-        //     type:Array,
-        //     defalut:function(){
-        //     //   items:[
-        //     //       {
-        //     //          name:"发现",
-        //     //          cls:"find", 
-        //     //       },
-        //     //       {
-        //     //           name:"我的",
-        //     //            cls:"mys"
-        //     //       },
-        //     //       {
-        //     //           name:"点赞",
-        //     //             cls:"good"
-        //     //       }
-        //     //   ]
-        //     }
         },
                 
-                
-
-    // items:[{
-    //     name:"发现",
-    //     cls:"find",
-        
-    // },{
-    //     name:"我的",
-    //     cls:"mys",
-    // },{
-    //     name:"点赞",
-    //     cls:"good",
-    // }],
     methods: {
         clickBar:function(){
             this.$router.push('/'+this.page)

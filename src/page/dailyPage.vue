@@ -85,8 +85,6 @@ export default {
             name:'DailyPage',
             songlist:[],
             songUrl:'',
-            
-            
         }
     },
     components:{
@@ -98,59 +96,27 @@ export default {
             let self = this
             axios.get('api/recommend/songs',{withCredentials: true}).then(function(res){
                 self.songlist = res.data['recommend']
-                // console.log(self.songlist)
             }).catch(function(err){
                 console.log(err)
             })
         },
         clickDate(e){
-            // console.log(e.target.getAttribute('data-id'))
-
             this.listSrc = e.target.getAttribute('data-src')
             this.listId = e.target.getAttribute('data-id')
-            // (this.listId)console.log
-            // console.log(this.listSrc)
             let self = this
             
             axios.get('api/song/url?id='+this.listId).then(function(res){
-                // console.log(res.data.data[0])
-                
                 self.songUrl = res.data.data[0]['url']
                 sessionStorage.setItem('url',self.songUrl)
                 sessionStorage.setItem('src',self.listSrc)
                 self.$router.push({
                     name:'play'
                 })
-                // 页面跳转并播放
-                // self.$router.push({
-                //     name: 'play',
-                //     params:{
-                //         url: self.songUrl,
-                //         src: self.listSrc,
-                //     }
-                // })
-                // window.location.href = '/playSong'
-                // this.$router.push({path:res.data.data[0].url})
+                
             }).catch(function(err){
                 console.log(err)
             })
-            // axios.get('http://127.0.0.1:3000/song/url?id='+list.id)
         }
-        // getlogin(){
-        //     axios.get('http://127.0.0.1:3000/recommend/resource').then(function(res){
-        //         console.log(res.data)
-        //     }).catch(function(err){
-        //         console.log(err)
-        //     })
-        // // getSong(){
-        // //     axios.get('http://127.0.0.1:3000/recommend/resource').then(function(res){
-        // //         console.log(res.data)
-        // //     }).catch(function(err){
-        // //         console.log(err)
-        // //     })
-        // // }
-
-
     },
     mounted() {
         this.getSong()

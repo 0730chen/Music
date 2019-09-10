@@ -7,7 +7,7 @@ const state = {
     }
     //计算属性
 const getters = {
-        print(state) {
+        printcat(state) {
             console.log(state.count)
         }
     }
