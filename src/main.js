@@ -10,7 +10,6 @@ import cat from './vuex/cat'
 Vue.config.productionTip = false
 Vue.use(VueLazyload)
 Vue.use(Vuex)
-console.log(cat)
 const store = new Vuex.Store({
     modules: {
         car,
@@ -20,7 +19,7 @@ const store = new Vuex.Store({
         count: 3,
         list: [{ 'link': '1234' }, { 'ssss': 'zzz' }]
     },
-    
+
     mutations: {
         increment(state) {
             state.count++
@@ -28,7 +27,7 @@ const store = new Vuex.Store({
         increment(state) {
             state.count++
         },
-        printinit(state, name){
+        printinit(state, name) {
             state.count = 10
                 // console.log(state.car.count)
 
@@ -43,12 +42,11 @@ const store = new Vuex.Store({
             store.commit('fitter', a.data.result)
             return a
         }
-        
+
     }
 })
-store.commit('print', 'jack')
 console.log(store.state.count)
-    
+
 store.commit('printinit', 'jack')
 new Vue({
     el: '#app',

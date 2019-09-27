@@ -21,8 +21,9 @@
     font-size: 0.14rem;
     
 }
-div{
+.footer>div{
     flex: 1;
+    max-width: 100%;
 }
 </style>
 <script>

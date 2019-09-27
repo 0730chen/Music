@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="con">
         <div id="header">
         <van-icon name="audio"></van-icon>
             <input id="select" type="search" placeholder="歌曲">
@@ -51,9 +51,7 @@ i{
     top: 0.15rem;
 }
 .container{
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
 }
 #header{
     position: absolute;
@@ -124,16 +122,14 @@ i{
 }
 .songlist{
     font-size: 8px;
-    width: 100px;
-    height: 130px;
-    padding: 8px;
+    max-width: 110px;
+    padding: 5px;
     flex-shrink: 0;
     margin-top: 6px;
 }
 img{
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 100%;
     border-radius: 10px;
 }
 .lunbo{
