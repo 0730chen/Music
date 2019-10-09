@@ -6,6 +6,7 @@ import VueLazyload from 'vue-lazyload'
 import axios from 'axios'
 import car from './vuex/car'
 import cat from './vuex/cat'
+import song from './vuex/song'
 // import { mapMutations } from 'vuex'
 Vue.config.productionTip = false
 Vue.use(VueLazyload)
@@ -13,7 +14,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     modules: {
         car,
-        cat
+        cat,
+        song,
     },
     state: {
         count: 3,

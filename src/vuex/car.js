@@ -2,7 +2,6 @@
 const state = {
         items: [],
         count: 1,
-
     }
     //计算属性
 const getters = {

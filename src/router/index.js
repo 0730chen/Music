@@ -17,7 +17,7 @@ import playSong from '../page/playSong.vue'
 
 // import footBar from '../components/FooterBuild.vue'
 const homepage = () =>
-    import('../page/homepage.vue')
+    import ('../page/homepage.vue') //动态路由
 
 Vue.use(Router)
 

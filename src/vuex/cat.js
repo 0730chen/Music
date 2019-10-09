@@ -1,14 +1,16 @@
 //初始化仓库属性
 const state = {
-        items: [],
-        count: 1,
-        name: 'cat'
+        cat: {
+            items: [],
+            count: 1,
+            name: 'cat',
+        }
 
     }
     //计算属性
 const getters = {
         printcat(state) {
-            console.log(state.count)
+            console.log(state.cat.count)
         }
     }
     //同步
