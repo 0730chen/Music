@@ -21,12 +21,16 @@
     left: 0;
     color:aliceblue;
     text-align: center;
-    transform: translateY(0.8rem)
+    transform: translateY(0.5rem)
 }
 .songList{
     height: 1rem;
     width: 3.45rem;
     display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-left: 10px;
 }
 .rankImg {
     height: 1rem;

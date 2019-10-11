@@ -12,8 +12,8 @@
         
         <div class="container">
         <div class="songList" v-for="(songs,index) in fitterArray2()" :key="index">
-            {{songs.name}}
             <img v-lazy="songs.coverImgUrl">
+             <div class="songName">{{songs.name}}</div>
         </div>
         </div>
         <footBar></footBar>
@@ -21,8 +21,6 @@
 </template>
 <style scoped>
 .lunbo-enter-active{
-    
-   
     transition: all 3s ease;
 }
 .lunbo-leave-active{
@@ -37,7 +35,7 @@
 
 .container{
     display: flex;
-    width: 90%;
+    width: 100%;
     height: 100%;
     flex-direction: column;
     flex-wrap: wrap;
@@ -46,7 +44,25 @@
 }
 .songList{
   flex-grow: 1;
-
+display: flex;
+flex-direction: row;
+justify-content: start;
+padding-top: 10px;
+align-items: center;
+font-size: 16px;
+text-align: end;
+}
+.songList>img{
+    max-height:30%;
+    max-width: 30%;
+    border: 1px solid black; 
+    margin-left: 20px;
+}
+.songName{
+    max-height:30%;
+    max-width: 30%;
+     border: 1px solid black; 
+     margin-left: 20px;
 }
 .imgList{
     position: absolute;
@@ -105,11 +121,7 @@ export default {
             })
         },
         lunboimgurl:async function(){
-            console.log(typeof(this.imgList()))
-           
             let a = await this.imgList()
-            console.log(a)
-            
         },
 
         authplay:function(mark){

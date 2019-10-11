@@ -10,11 +10,13 @@ const getters = {
         console.log("a");
     }
 };
+//同步方法
 const mutations = {
     setDate(state) {
         // console.log(state.song)
     }
 };
+//异步请求
 const actions = {
     contextTest(context) {
         console.log(context)

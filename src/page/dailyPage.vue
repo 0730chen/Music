@@ -6,9 +6,9 @@
             <div class="play"></div>
             <div class="List" v-for="(list,index) in songlist " :key="index">
                 <!-- <div>播放</div> -->
-                    <div :data-id="list.id" :data-src="list.album['picUrl']" @click=" clickDate($event)" class="playbtn"></div>
                     <div class="songtitle">{{list.name}}&nbsp;&nbsp;<p>{{list.album.artists[0].name}}</p></div>
                     <img v-lazy="list.album['picUrl']">
+                    <div :data-id="list.id" :data-src="list.album['picUrl']" @click=" clickDate($event)" class="playbtn"></div>
             </div>
             <div class="play"></div>
             </div>
@@ -21,6 +21,7 @@ p{
 }
 .songtitle{
     display: flex;
+    width: 70%;
     justify-content:center;
     align-items: center;
     flex-direction: column;
@@ -28,9 +29,11 @@ p{
     
 }
 .playbtn{
+    height: 0.5rem;
+    width: 1rem;
     background: url('../assets/play.png') 100% 100% no-repeat;
     background-size: 15%;
-    background-position: 0.5rem 0.15rem
+    background-position: 0.5rem 0.15rem;
 }
 .play{
     position: relative;
@@ -57,7 +60,7 @@ p{
 }
 .List{
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: flex-start;
     align-self: center;
     width: 95%;

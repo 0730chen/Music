@@ -24,18 +24,32 @@
 </template>
 <style scoped>
 .djs{
-    font-size: 0.16rem;
-    width: 1.5rem;
+    font-size: 0.14rem;
+    width: 1rem;
     height: 1.5rem;
+    margin: 10px;
+    border: 1px solid black;
 }
 .djRaidos{
     display: flex;
     flex-wrap: wrap;
     padding: 0.1rem;
+    justify-content: center;
+    align-items: center;
+}
+.picList{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.picList>img{
+    margin:0 auto;
 }
 .djImg{
-    width: 1rem;
-    height: 1rem;
+    max-width: 1rem;
+    max-height: 1rem;
 }
 .line{
     width: 90%;
@@ -47,10 +61,11 @@
 .radio{
     font-size: 0.16rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 img{
     width: 80%;
-    height: 1.6rem;
     border-radius: 5%
 }
 .Tabs{

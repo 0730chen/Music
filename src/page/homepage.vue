@@ -222,6 +222,7 @@ export default {
     this.imglists();
   },
   created() {
+    console.log(this.song)
     this.getDate;
     this.play();
     this.con();
@@ -229,7 +230,6 @@ export default {
   },
   computed: {
     filterAddress: function() {
-        console.log(this)
       this.songlists = this.song.song.result;
       return this.songlists.slice(0, this.limteAddress);
     },
