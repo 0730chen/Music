@@ -81,26 +81,26 @@ import hello from './components/HelloWorld.vue'
 @keyframes fade-right-in{
   0%{
     width: 100%;
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0)
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0)
   }
   100%{
     width:100%;
-    -webkit-transform: translate3d(-100%,0,0);
-    transform: translate3d(-100%,0,0)
+    -webkit-transform: translate(-100%,0);
+    transform: translate(-100%,0)
   }
 
 }
 @keyframes fade-right-out{
   0%{
     width:100%;
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0)
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0)
   }
   100%{
     width: 100%;
-    -webkit-transform: translate3d(100%,0,0);
-    transform:translate3d(100%,0,0)
+    -webkit-transform: translate(100%,0);
+    transform:translate(100%,0)
   }
 }
 html{

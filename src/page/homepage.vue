@@ -19,10 +19,12 @@
     <span id="recommended">推荐歌单</span>
     <div id="more" @click="loadmore">更多</div>
     <div class="songlists">
-      <span class="songlist" v-for="(songlist,index) in filterAddress" :key="index">
+      <div class="songlist" v-for="(songlist,index) in filterAddress" :key="index">
         <img v-lazy="songlist.picUrl" />
-        {{songlist.name}}
-      </span>
+        <router-link :to="{path:'./playlist',query:{id:songlist.id}}" >{{songlist.name}}</router-link>
+        <!-- <router-link :to="{path:'/playList',query:{songlist.id}}">{{songlist.name}}</router-link> -->
+        <!-- <router-link :to="{path:'./playList',query:{id:songlist.id}></router-link> -->
+      </div>
     </div>
     <footBar></footBar>
   </div>
@@ -205,7 +207,9 @@ export default {
       setInterval(this.authplay, 5000);
     },
     loadmore: function() {
-      let len = this.songlists.length;
+      // let len = this.songlists.length;
+      let len = this.song.song.result.length
+      console.log(len)
       if (this.limteAddress == len) {
         this.limteAddress = 9;
       } else {
@@ -222,7 +226,6 @@ export default {
     this.imglists();
   },
   created() {
-    console.log(this.song)
     this.getDate;
     this.play();
     this.con();
@@ -230,8 +233,9 @@ export default {
   },
   computed: {
     filterAddress: function() {
-      this.songlists = this.song.song.result;
-      return this.songlists.slice(0, this.limteAddress);
+      // this.songlists = this.song.song.result;
+      // this.songlists = this.song
+      return this.song.song.result.slice(0, this.limteAddress);
     },
     ...mapState(["count",'cat','car']),
 

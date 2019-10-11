@@ -14,11 +14,11 @@ import radio from '../page/radio.vue'
 import zhibo from '../page/zhibo.vue'
 import near from '../page/nearPage.vue'
 import playSong from '../page/playSong.vue'
+import playList from '../page/playList.vue'
 
 // import footBar from '../components/FooterBuild.vue'
 const homepage = () =>
-    import ('../page/homepage.vue') //动态路由
-
+    import ('../page/homepage.vue') //路由懒加载
 Vue.use(Router)
 
 export default new Router({
@@ -71,5 +71,9 @@ export default new Router({
         path: '/playSong',
         name: 'play',
         component: playSong
+    }, {
+        path: '/playList',
+        name: 'playList',
+        component: playList
     }]
 })
