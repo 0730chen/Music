@@ -229,7 +229,10 @@ export default {
     this.getDate;
     this.play();
     this.con();
+    console.log(this)
     this.contextTest
+    this.songList
+    this.add
   },
   computed: {
     filterAddress: function() {
@@ -237,11 +240,11 @@ export default {
       // this.songlists = this.song
       return this.song.song.result.slice(0, this.limteAddress);
     },
-    ...mapState(["count",'cat','car']),
+    ...mapState(["count",'cat','car',]),
 
     ...mapActions(["getDate","contextTest"]),
     // ...mapMutations(["setDate"]),
-    ...mapState(["song"])
+    ...mapState(["song","playList"]),
   }
 };
 </script>

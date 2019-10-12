@@ -3,12 +3,11 @@ const state = {
     song: {
         result: [],
         playCount: [],
+        id: []
     }
 };
 const getters = {
-    add: function() {
-        console.log("a");
-    }
+    add: function() {}
 };
 //同步方法
 const mutations = {
@@ -30,6 +29,7 @@ const actions = {
             // console.log(this.state.song.song.result)
             // console.log(this.state.song.song)
             state.state.song.result.push(e)
+            state.state.song.id.push(e.id)
         });
     }
 };

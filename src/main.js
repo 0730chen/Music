@@ -7,6 +7,7 @@ import axios from 'axios'
 import car from './vuex/car'
 import cat from './vuex/cat'
 import song from './vuex/song'
+import playList from './vuex/playList'
 // import { mapMutations } from 'vuex'
 Vue.config.productionTip = false
 Vue.use(VueLazyload)
@@ -16,6 +17,7 @@ const store = new Vuex.Store({
         car,
         cat,
         song,
+        playList,
     },
     state: {
         count: 3,
