@@ -18,7 +18,7 @@
     <div id="line"></div>
       <div class="select-Button">
     <span id="recommended">推荐歌单</span>
-    <div id="more" @click="loadmore">更多</div>
+    <div id="more" @click="loadmore">更多歌单</div>
     </div>
     <div class="songlists">
       <div class="songlist" v-for="(songlist,index) in filterAddress" :key="index">
@@ -54,6 +54,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding:0 10px ;
   }
   input{
     font-size: 30px;
@@ -67,15 +68,17 @@
   #line {
     background-color: rgb(149, 151, 153);
     height: 1px;
-    transform: translateY(10px);
+   margin-top: 16px;
   }
 .select-Button{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 8px 10px;
 }
   #more {
     font-size: 16px;
+    font-weight: 1000;
   }
   #recommended {
     font-weight: 1000;
@@ -106,7 +109,7 @@
 
   .lunbo {
     position: absolute;
-    padding: 10px;
+    padding: 6px;
   }
 
   .lunbo > img {
