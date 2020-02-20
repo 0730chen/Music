@@ -8,7 +8,6 @@ import car from './vuex/car'
 import cat from './vuex/cat'
 import song from './vuex/song'
 import playList from './vuex/playList'
-// import { mapMutations } from 'vuex'
 Vue.config.productionTip = false
 Vue.use(VueLazyload)
 Vue.use(Vuex)
@@ -25,9 +24,6 @@ const store = new Vuex.Store({
     },
 
     mutations: {
-        increment(state) {
-            state.count++
-        },
         increment(state) {
             state.count++
         },

@@ -10,10 +10,9 @@
         <h3>他是</h3>{{didi}}
         </div>
     </div>
-    
+
 </template>
 <script>
-import hello from "./HelloWorld.vue";
 // console.log(hello)
 export default {
     data(){
@@ -30,29 +29,29 @@ export default {
     background-color: blanchedalmond;
     display:flex;
     flex-direction: row;
-    
-    
+
+
 }
 #sec{
 background-color: blanchedalmond;
     border: 10px solid;
     width:200px;
     flex:auto
-    
+
 }
 #thr{
 background-color: blanchedalmond;
     border: 10px solid;
      width:200px;
      flex:auto
-    
+
 }
 #am{
     background-color: blanchedalmond;
     border: 10px solid;
      width:200px;
      flex:auto
-     
+
 }
-    
+
 </style>

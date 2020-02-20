@@ -1,26 +1,21 @@
 <template>
   <div id="app">
     <div class="container">
-    <transition :name="fade">
-    
-    <router-view></router-view></transition>
+<!--    <transition :name="fade">-->
+<!--    <router-view></router-view></transition>-->
+      <router-view></router-view>
     </div>
   </div>
-  
 </template>
 
-
 <script>
-import first from './components/first.vue'
-import cpt from './components/cpt.vue'
 import NavBar from './components/FooterBuild.vue'
-import hello from './components/HelloWorld.vue'
  export default{
   name:"app",
   msg2:'hello',
   components:{
    NavBar,
-   
+
   },
   data(){
     return {
@@ -36,7 +31,7 @@ import hello from './components/HelloWorld.vue'
       }
     }
   },
-  
+
 
 }
 </script>
@@ -115,9 +110,6 @@ html{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  height: 100%;
-  width: 100%;
 }
 body{
   width: 100%;

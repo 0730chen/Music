@@ -1,6 +1,5 @@
 <template>
     <div class="back" @click="getBack">
-
     </div>
 </template>
 <style scoped>
@@ -37,7 +36,7 @@ export default {
             this.$router.go(-1)
         }
     },
-    
+
 }
 </script>
 

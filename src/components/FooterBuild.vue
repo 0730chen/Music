@@ -3,7 +3,6 @@
        <div v-for="(item,index) of items" :key="index">
         <router-link :to="{path:item.path}" >{{item.name}}</router-link>
         </div>
-
     </div>
 </template>
 
@@ -12,14 +11,10 @@
     display: flex;
     width: 100%;
     height: 0.2rem;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     flex-direction: row;
     background-color: rgb(247, 249, 252);
     z-index: 99;
     font-size: 0.14rem;
-    
 }
 .footer>div{
     flex: 1;
@@ -35,7 +30,7 @@ export default {
                   {
                      name:"发现",
                      path:"/",
-                     cls:"find", 
+                     cls:"find",
                   },
                   {
                       name:"视频",
@@ -62,7 +57,7 @@ export default {
     },
     props:{
         },
-                
+
     methods: {
         clickBar:function(){
             this.$router.push('/'+this.page)

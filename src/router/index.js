@@ -2,7 +2,7 @@
 /* eslint-disable eol-last */
 import Vue from 'vue'
 import Router from 'vue-router'
-// import homePage from '../page/homepage.vue'
+// import homePage from '../page/Homepage.vue'
 import videoPage from '../page/videoPage.vue'
 import myPage from '../page/myPage.vue'
 import friendPage from '../page/friendPage.vue'
@@ -18,7 +18,7 @@ import playList from '../page/playList.vue'
 
 // import footBar from '../components/FooterBuild.vue'
 const homepage = () =>
-    import ('../page/homepage.vue') //路由懒加载
+    import ('../page/Homepage.vue') //路由懒加载
 Vue.use(Router)
 
 export default new Router({
