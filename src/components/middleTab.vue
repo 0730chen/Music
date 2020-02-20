@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: row;
     font-size: 0.16rem;
-    padding-top: 16px;
+    padding-top: 6px;
     padding-left: 16px;
     padding-right: 10px;
   }

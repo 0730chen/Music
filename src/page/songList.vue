@@ -2,14 +2,14 @@
     <div>
         <backTab></backTab>
         <div class="imgList">
-            
+
             <div class="imgurls" v-for="(img,index) in fitterArray()" :key="index">
                 <transition name="lunbo">
                 <img class="imgs" v-lazy="img.coverImgUrl" v-if="index==mark" :key="index">
                 </transition>
             </div>
         </div>
-        
+
         <div class="container">
         <div class="songList" v-for="(songs,index) in fitterArray2()" :key="index">
             <img v-lazy="songs.coverImgUrl">
@@ -24,13 +24,13 @@
     transition: all 3s ease;
 }
 .lunbo-leave-active{
-    
+
     transition: all 3s ease;
 }
 .lunbo-enter, .lunbo-leave-to{
-   
+
     opacity: 0;
-    
+
 }
 
 .container{
@@ -55,13 +55,13 @@ text-align: end;
 .songList>img{
     max-height:30%;
     max-width: 30%;
-    border: 1px solid black; 
+    border: 1px solid black;
     margin-left: 20px;
 }
 .songName{
     max-height:30%;
     max-width: 30%;
-     border: 1px solid black; 
+     border: 1px solid black;
      margin-left: 20px;
 }
 .imgList{
@@ -88,14 +88,14 @@ img{
     display: block;
     position: relative;
     width: 30%;
-    
+
 
 }
 </style>
 
 <script>
 import footBar from '../components/FooterBuild'
-import backTab from '../components/backPage'
+import backTab from '../components/BackPage'
 import axios from 'axios';
 export default {
     data() {
@@ -129,7 +129,7 @@ export default {
             if(this.mark ==4){
                 this.mark =0;
             }
- 
+
         },
         play:function(){
             setInterval(this.authplay,5000)
@@ -139,7 +139,7 @@ export default {
         footBar,backTab
     },
     mounted() {
-         
+
     },
     created() {
         this.imgList()

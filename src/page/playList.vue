@@ -51,7 +51,7 @@
 </style>
 <script>
 import axios from 'axios'
-import back from '../components/backPage'
+import back from '../components/BackPage'
 import {mapState,mapGetters,mapMutations,mapActions} from 'Vuex'
 import foot from '../components/FooterBuild'
 export default {
@@ -68,7 +68,7 @@ export default {
 		// list:function(){
 		// 	return this.playList().playList.result
 		// },
-		//辅助函数传递过来后都需要调用才能使用Vuex中的数据 
+		//辅助函数传递过来后都需要调用才能使用Vuex中的数据
 		...mapGetters(['setId']),
 		...mapState(['playList','song']),
 		...mapMutations(['setState','log','getId']),
@@ -85,7 +85,7 @@ export default {
                 self.$router.push({
                     name:'play'
                 })
-                
+
             }).catch(function(err){
                 console.log(err)
             })
@@ -113,7 +113,7 @@ export default {
 	},
 	mounted(){
 		//写在mounted中Vuex可以更新数据
-		
+
 		/*   使用VueX的方式console.log(this.$route.query.id)//使用router-link对象传参
 		let id = this.$route.query.id
 		this.getId(id)

@@ -4,9 +4,6 @@
 </template>
 <style scoped>
 .back{
-    position: fixed;
-    top:18px;
-    left: 18px;
     border:10px solid transparent;
     border-right: 10px solid #ccc;
 
@@ -33,7 +30,7 @@ export default {
     },
     methods: {
         getBack:function(){
-            this.$router.go(-1)
+            this.$router.go()
         }
     },
 

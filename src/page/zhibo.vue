@@ -8,7 +8,7 @@
             <div class="title">{{comment.user.nickname}}</div>
             <div class="context">{{comment.content}}</div>
         </div>
-    
+
     <footBar></footBar>
     </div>
     </div>
@@ -35,8 +35,8 @@ img{
     width: 0.3rem;
     height: 0.3rem;
     border-radius: 50%;
-    
-    
+
+
 }
 .comments{
     position: relative;
@@ -51,7 +51,7 @@ img{
 </style>
 
 <script>
-import backTab from '../components/backPage'
+import backTab from '../components/BackPage'
 import footBar from '../components/FooterBuild'
 import axios from 'axios'
 export default {
@@ -75,7 +75,7 @@ export default {
                     // console.log(iter)
                     // if(iter.text.length != 0){
                     //     // this.commentsList.push(iter)
-                        
+
                     //     console.log(iter.text[0])
                     // }else{
                     //     console.log('没有留言')

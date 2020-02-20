@@ -91,6 +91,8 @@
     flex-wrap: wrap;
     margin-top: 10px;
     justify-content: center;
+    height: 360px;
+    overflow: auto;
   }
 
   .songlist {
@@ -120,7 +122,7 @@
     height: 150px;
     width:100vw;
     position: relative;
-    margin-top: 16px;
+    margin-top: 6px;
   }
 </style>
 

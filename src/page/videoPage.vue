@@ -12,8 +12,8 @@
             <!-- <div class="videoList" v-for="(videolist,index) in urls" :key="index+1">
                 <iframe :src="videolist" frameborder="0"></iframe>
             </div> -->
-        
-        
+
+
         <footBar></footBar>
     </div>
 </template>
@@ -38,7 +38,7 @@ video{
 <script>
 import footBar from '../components/FooterBuild'
 import axios from 'axios'
-import backTab from '../components/backPage'
+import backTab from '../components/BackPage'
 export default {
     components:{
         footBar,
@@ -62,9 +62,9 @@ export default {
                  for(let i =0;i<this.videos.length; i++){
                      console.log(i)
                     //  console.log(this.videos[i].data.vid)
-                     
+
                      axios.get('api/video/url?id='+this.videos[i].data.vid).then( res =>{
-                         
+
                         //  console.log(res.data['urls'][0].url)
                         //  that.urls = res.data['urls'][0].url
                     //    that.urls = {'urls':res.data['urls'][0].url}
@@ -92,11 +92,11 @@ export default {
                 //  for(let i = 0; i<this.videos.length; i++){
                 //      console.log(videos[i])
                 //  }
-                 
+
                 //  this.videos = res.data.datas.vid
                 //  console.log(this.videos)
                 }
-                
+
             ).catch( err =>{
                 console.log(err)
             })
@@ -105,6 +105,6 @@ export default {
     mounted() {
         this.videoLists()
     },
-    
+
 }
 </script>

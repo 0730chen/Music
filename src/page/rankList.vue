@@ -66,7 +66,7 @@ span{
 <script>
 import axios from 'axios'
 import footBar from '../components/FooterBuild'
-import backTab from '../components/backPage'
+import backTab from '../components/BackPage'
 export default {
     // rankList:'',
     data() {
@@ -80,7 +80,7 @@ export default {
         getData(){
             let self = this
             axios.get('api/toplist').then(function(res){
-                
+
                 // console.log(res.data)
                 self.rankList = res.data['list']
                 // self.rankList = res.data.playlist['tracks']

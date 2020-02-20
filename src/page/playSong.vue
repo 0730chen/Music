@@ -27,7 +27,7 @@ img{
 </style>
 
 <script>
-import backTab from '../components/backPage'
+import backTab from '../components/BackPage'
 export default {
     data() {
         return {
@@ -51,14 +51,14 @@ export default {
             //使用sessionStorage保存数据，加上判断可以保持刷新后依然是这个歌曲
             // if(sessionStorage.getItem('url') == 'undefined'){
             //     sessionStorage.setItem('url',this.url)
-            //     sessionStorage.setItem('src',this.src) 
+            //     sessionStorage.setItem('src',this.src)
             // }else{
             //     this.url = sessionStorage.getItem('url')
             //     this.src = sessionStorage.getItem('src')
             // }
             // sessionStorage.setItem('url',this.url)
             // sessionStorage.setItem('src',this.src)
-            
+
         },
         // readDate:function(url,src){
         //     console.log('页面刷新')
@@ -75,8 +75,8 @@ export default {
     created() {
         // this.readDate()
     },
-    
-    
+
+
 }
 </script>
 

@@ -18,7 +18,7 @@
                 <img  class="djImg" :src='dj.picUrl' alt="">
                 <div>{{dj.name}}</div>
             </div>
-            </div> 
+            </div>
         <footBar></footBar>
     </div>
 </template>
@@ -56,7 +56,7 @@
     height: 1px;
     background: cornflowerblue;
     margin: 0 auto;
-   
+
 }
 .radio{
     font-size: 0.16rem;
@@ -80,7 +80,7 @@ img{
 
 <script>
 import footBar from '../components/FooterBuild'
-import backTab from '../components/backPage'
+import backTab from '../components/BackPage'
 import axios from 'axios'
 export default {
     data(){
