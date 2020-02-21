@@ -1,39 +1,48 @@
 <template>
-  <div>
-    <div class="daily-nav">
-    <backTab></backTab>
-    <span class="title">热门歌曲</span>
-  </div>
+  <div class="daily-wrapper">
+    <footBar></footBar>
     <div class="songList">
-      <div class="play"></div>
       <div class="List" v-for="(list,index) in songlist " :key="index">
         <div class="songtitle">{{list.name}}&nbsp;&nbsp;<p>{{list.album.artists[0].name}}</p></div>
         <img v-lazy="list.album['picUrl']">
         <div :data-id="list.id" :data-src="list.album['picUrl']" @click=" clickDate($event)" class="playbtn"></div>
       </div>
-      <div class="play"></div>
     </div>
-    <footBar></footBar>
+    <div class="daily-nav">
+      <backTab></backTab>
+      <span class="title">热门歌曲</span>
+    </div>
   </div>
 </template>
 <style scoped>
   p {
     font-size: 0.1rem;
   }
-.title{
-  font-size: 16px;
-}
-.daily-nav{
-  display: flex;
-  flex-direction: row;
-}
+
+  .daily-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .title {
+    font-size: 16px;
+    margin: 0 auto;
+  }
+
+  .daily-nav {
+    display: flex;
+    flex-direction: row;
+    padding-top: 8px;
+    padding-left: 8px;
+  }
+
   .songtitle {
     display: flex;
     width: 70%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 0.14rem;
+    font-size:16px;
 
   }
 
@@ -41,23 +50,17 @@
     height: 0.5rem;
     width: 1rem;
     background: url('../assets/play.png') 100% 100% no-repeat;
-    background-size: 15%;
+    background-size: 25%;
     background-position: 0.5rem 0.15rem;
   }
 
-  .play {
-    position: relative;
-    width: 100%;
-    height: 0.5rem;
-  }
-
   .songList {
-    font-size: 0.16rem;
-    z-index: 99;
-    position: relative;
-    border-radius: 0.15rem 0.15rem;
-    background-color: white
-
+    background-color: white;
+    flex-grow: 1;
+    margin-top: 18px;
+    height:600px;
+    overflow: auto;
+    border-top: 1px solid #666666;
   }
 
   .List {
@@ -65,8 +68,6 @@
     flex-direction: row;
     justify-content: flex-start;
     align-self: center;
-    width: 95%;
-    height: 0.5rem;
     padding: 0.06rem;
 
   }
@@ -111,7 +112,6 @@
                 this.listSrc = e.target.getAttribute('data-src')
                 this.listId = e.target.getAttribute('data-id')
                 let self = this
-
                 axios.get('api/song/url?id=' + this.listId).then(function (res) {
                     self.songUrl = res.data.data[0]['url']
                     sessionStorage.setItem('url', self.songUrl)

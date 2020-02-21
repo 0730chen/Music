@@ -30,7 +30,7 @@ export default {
     },
     methods: {
         getBack:function(){
-            this.$router.go()
+            this.$router.back()
         }
     },
 
