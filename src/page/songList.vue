@@ -1,150 +1,125 @@
 <template>
-    <div>
-        <backTab></backTab>
-        <div class="imgList">
-
-            <div class="imgurls" v-for="(img,index) in fitterArray()" :key="index">
-                <transition name="lunbo">
-                <img class="imgs" v-lazy="img.coverImgUrl" v-if="index==mark" :key="index">
-                </transition>
-            </div>
-        </div>
-
-        <div class="container">
-        <div class="songList" v-for="(songs,index) in fitterArray2()" :key="index">
-            <img v-lazy="songs.coverImgUrl">
-             <div class="songName">{{songs.name}}</div>
-        </div>
-        </div>
-        <footBar></footBar>
+  <div class="Song-wrapper">
+    <footBar></footBar>
+    <div class="container">
+      <div class="songList" v-for="(songs,index) in fitterArray2()" :key="index">
+        <img v-lazy="songs.coverImgUrl">
+        <div class="songName">{{songs.name}}</div>
+      </div>
     </div>
+    <div class="songList-title">
+      <backTab></backTab>
+      <span class="title">歌单广场</span>
+    </div>
+  </div>
 </template>
 <style scoped>
-.lunbo-enter-active{
+  .lunbo-enter-active {
     transition: all 3s ease;
-}
-.lunbo-leave-active{
+  }
+
+  .lunbo-leave-active {
 
     transition: all 3s ease;
-}
-.lunbo-enter, .lunbo-leave-to{
+  }
+
+  .lunbo-enter, .lunbo-leave-to {
 
     opacity: 0;
 
-}
+  }
 
-.container{
+  .Song-wrapper {
     display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
+    flex-direction: column-reverse;
+  }
+
+  .songList-title {
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+  }
+
+  .title {
+    margin: 0 auto;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    font-size: 0.16rem;
-    transform: translateY(2rem)
-}
-.songList{
-  flex-grow: 1;
-display: flex;
-flex-direction: row;
-justify-content: start;
-padding-top: 10px;
-align-items: center;
-font-size: 16px;
-text-align: end;
-}
-.songList>img{
-    max-height:30%;
-    max-width: 30%;
-    border: 1px solid black;
-    margin-left: 20px;
-}
-.songName{
-    max-height:30%;
-    max-width: 30%;
-     border: 1px solid black;
-     margin-left: 20px;
-}
-.imgList{
-    position: absolute;
-    width: 80%;
-    height: 2rem;
-    left: 0.25rem;
-    padding: 0rem;
-}
-.imgs{
-    position: absolute;
-    width: 3rem;
-    height: 2rem;
-    border-radius: 10%
-}
-.imgurls{
-    position: absolute;
-    width: 80%;
-    height: 2rem;
-    border-radius: 10%;
-    float: left;
-}
-img{
-    display: block;
-    position: relative;
-    width: 30%;
+    margin-top: 28px;
+    justify-content: start;
+    height: 600px;
+    overflow: auto;
+    font-size: 16px;
+  }
 
+  .songList {
+    max-width: 32%;
+  }
 
-}
+  .songList > img {
+    max-width: 100px;
+  }
+
+  .songName {
+  }
 </style>
 
 <script>
-import footBar from '../components/FooterBuild'
-import backTab from '../components/BackPage'
-import axios from 'axios';
-export default {
-    data() {
-        return {
-            mark:0,
-            name:"songList",
-            songlist:[],
-            imgurls:[],
-        }
-    },
-    methods: {
-        fitterArray:function(){
-            return this.songlist.slice(0,4)
-        },
-        fitterArray2:function(){
-            return this.songlist.slice(4,this.songlist.length)
-        },
-        imgList:function(){
-            let self = this
-            axios.get('api/top/playlist',{withCredentials: true}).then(function(res){
-                self.songlist = res.data['playlists']
-                self.imgurls.push(res.data['playlists'].slice(0,6))
-            })
-        },
-        lunboimgurl:async function(){
-            let a = await this.imgList()
-        },
+    import footBar from '../components/FooterBuild'
+    import backTab from '../components/BackPage'
+    import axios from 'axios';
 
-        authplay:function(mark){
-            this.mark++
-            if(this.mark ==4){
-                this.mark =0;
+    export default {
+        data() {
+            return {
+                mark: 0,
+                name: "songList",
+                songlist: [],
+                imgurls: [],
             }
+        },
+        methods: {
+            fitterArray: function () {
+                return this.songlist.slice(0, 4)
+            },
+            fitterArray2: function () {
+                return this.songlist.slice(4, this.songlist.length)
+            },
+            imgList: function () {
+                let self = this
+                axios.get('api/top/playlist', {withCredentials: true}).then(function (res) {
+                    self.songlist = res.data['playlists']
+                    self.imgurls.push(res.data['playlists'].slice(0, 6))
+                })
+            },
+            lunboimgurl: async function () {
+                let a = await this.imgList()
+            },
+
+            authplay: function (mark) {
+                this.mark++
+                if (this.mark == 4) {
+                    this.mark = 0;
+                }
+
+            },
+            play: function () {
+                setInterval(this.authplay, 5000)
+            }
+        },
+        components: {
+            footBar, backTab
+        },
+        mounted() {
 
         },
-        play:function(){
-            setInterval(this.authplay,5000)
-        }
-    },
-    components:{
-        footBar,backTab
-    },
-    mounted() {
-
-    },
-    created() {
-        this.imgList()
-        this.play()
-        this.lunboimgurl()
-    },
-}
+        created() {
+            this.imgList()
+            this.play()
+            this.lunboimgurl()
+        },
+    }
 </script>

@@ -189,7 +189,6 @@
                 setInterval(this.authplay, 5000);
             },
             loadmore: function () {
-                // let len = this.songlists.length;
                 let len = this.song.song.result.length
                 console.log(len)
                 if (this.limteAddress == len) {
@@ -211,15 +210,12 @@
             this.getDate;
             this.play();
             this.con();
-            console.log(this)
             this.contextTest
             this.songList
             this.add
         },
         computed: {
             filterAddress: function () {
-                // this.songlists = this.song.song.result;
-                // this.songlists = this.song
                 return this.song.song.result.slice(0, this.limteAddress);
             },
             ...mapState(["count", 'cat', 'car',]),
