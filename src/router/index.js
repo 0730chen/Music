@@ -13,7 +13,7 @@ import ranklist from '../page/RankList.vue'
 import radio from '../page/Radio.vue'
 import zhibo from '../page/Zhibo.vue'
 import near from '../page/nearPage.vue'
-import playSong from '../page/playSong.vue'
+import playSong from '../page/PlaySong.vue'
 import playList from '../page/playList.vue'
 
 // import footBar from '../components/FooterBuild.vue'
