@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import homePage from '../page/Homepage.vue'
-import videoPage from '../page/videoPage.vue'
+import videoPage from '../page/VideoPage.vue'
 import myPage from '../page/myPage.vue'
 import friendPage from '../page/friendPage.vue'
 import accountPage from '../page/accountPage.vue'

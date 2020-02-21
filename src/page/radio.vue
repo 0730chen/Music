@@ -50,7 +50,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: start;
-    margin-top: 20px;
+    margin-top: 39px;
   }
 
   .picList {
