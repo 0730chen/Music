@@ -49,7 +49,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 28px;
-    justify-content: start;
+    justify-content: space-between;
+    align-items: center;
     height: 600px;
     overflow: auto;
     font-size: 16px;
