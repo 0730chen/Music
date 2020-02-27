@@ -1,39 +1,40 @@
 <template>
-    <div class="back" @click="getBack">
-    </div>
+  <div class="back" @click="getBack">
+  </div>
 </template>
 <style scoped>
-.back{
-    border:10px solid transparent;
-    border-right: 10px solid #ccc;
+  .back {
+    position: fixed;
+    left: 10px;
+    border: 10px solid transparent;
+    border-left: 10px solid #ccc;
+  }
 
-}
-.back:hover{
+  .back:hover {
     border-right: 10px solid #808080;
-}
-.back::after{
-    content:'';
-    position:absolute;
+  }
+
+  .back::after {
+    content: '';
+    position: absolute;
     top: -10px;
     left: -7px;
     border: 10px solid transparent;
     border-right: 10px solid #fff;
-}
+  }
 
 </style>
 <script>
-export default {
-    data(){
-        return {
+    export default {
+        data() {
+            return {}
+        },
+        methods: {
+            getBack: function () {
+                this.$router.back()
+            }
+        },
 
-        }
-    },
-    methods: {
-        getBack:function(){
-            this.$router.back()
-        }
-    },
-
-}
+    }
 </script>
 
