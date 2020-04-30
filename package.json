@@ -15,7 +15,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "dns": "^0.2.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "vant": "^2.0.9",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
